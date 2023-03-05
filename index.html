@@ -9,11 +9,11 @@
         <meta name="author" content="M.F.Saathof">
         <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <link href="styles/main.css" rel="stylesheet" type="text/css">
-        <link href="styles/roboto.css" rel="stylesheet" type="text/css">
+        <link href="/styles/main.css" rel="stylesheet" type="text/css">
+        <link href="/styles/roboto.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="/styles/main.js"></script>      
         <title>Technical Grow Solutions</title>
-        <link href="images/comp_icon.ico"rel="icon" type="image/x-icon">
+        <link href="/images/comp_icon.ico"rel="icon" type="image/x-icon">
     </head>
     <!--Ends Head-->
 
@@ -202,7 +202,7 @@
 
         <div id="main">
             <!-- =========== IFRAME =========== -->            
-            <iframe class="iframe" id="iframe" name="mainiframe" src="landing/landing.html">
+            <iframe class="iframe" id="iframe" name="mainiframe" src="/landing/landing.html">
                 <p>Your browser does not support iframes.</p>
             </iframe>       
         </div>
@@ -241,95 +241,6 @@
             /* ===========  CHAPTER script =========== */
             function fChapterchange(bla) {
             document.getElementById("chaptervalue").innerHTML=bla;
-            }
-        </script>        
-        <script>
-            /* =========== NAVIGATION SIDE script =========== */
-            function openNav() {
-              document.getElementById("nav-side").style.width = "300px";
-              document.getElementById("main").style.marginLeft = "300px";
-              document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-            }            
-            function closeNav() {
-              document.getElementById("nav-side").style.width = "0";
-              document.getElementById("main").style.marginLeft= "0";
-              document.body.style.backgroundColor = "white";
-            }
-        </script>
-        <script>
-            /* =========== FULLSCREEN script =========== */
-            let fullscreen;
-            let fs = document.getElementById("fullscr");
-            fs.addEventListener("mouseover", fsOn);
-            fs.addEventListener("mouseout", fsOff);
-            fs.addEventListener("click", function (e) {
-            e.preventDefault();
-            if (!fullscreen) {
-            fullscreen = true;
-            document.documentElement.requestFullscreen();
-            document.getElementById("iframe").style.height= 1080 -60 - 5- 24 ;  // 974;  950
-            //--el-header-height: 60px;
-            //--el-chapter-height: 50px;
-            //--el-iframe-height: 950px;
-            // --el-footer-height: 24px;
-            }
-            else {
-            fullscreen = false;
-            document.exitFullscreen();
-            document.getElementById("iframe").style.height=946; //974 -132;
-            }
-            });
-            function fsOn() {
-            if (!fullscreen) {
-                fs.src="./_images/symb_fullscreen[on].png";
-            }
-            else {
-                fs.src="./_images/symb_fullscreen_exit[on].png";
-            }
-            }
-            function fsOff() {
-            if (!fullscreen) {
-                fs.src="./_images/symb_fullscreen[off].png";
-            }
-            else {
-                fs.src="./_images/symb_fullscreen_exit[off].png";
-            }
-            }
-        </script>
-        <script>
-            /* =========== LOGIN script =========== */
-            let loggedin;
-            let lg = document.getElementById("login");
-            lg.addEventListener("mouseover", lgOn);
-            lg.addEventListener("mouseout", lgOff);
-            lg.addEventListener("click", function (e) {
-            e.preventDefault();
-            if (!loggedin) {
-            loggedin = true;
-            lgon()
-            //.documentElement.requestFullscreen();
-            }
-            else {
-            loggedin = false;
-            lgoff()
-            //document.exitFullscreen();
-            }
-            });
-            function lgOn() {
-            if (!loggedin) {
-                lg.src="./_images/symb_login[on].png";
-            }
-            else {
-                lg.src="./_images/symb_loggedin[on].png";
-            }
-            }
-            function lgOff() {
-            if (!loggedin) {
-                lg.src="./_images/symb_login[off].png";
-            }
-            else {
-                lg.src="./_images/symb_loggedin[off].png";
-            }
             }
         </script>        
         <!--Ends Script-->
