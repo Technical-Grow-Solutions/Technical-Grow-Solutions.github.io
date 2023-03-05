@@ -1,0 +1,1104 @@
+<!--Starts DIFFERENT CONTAINER-->
+<!--Starts TABLE -->
+<DIV id="Intro">
+<TABLE cols="1" cellpadding="0" cellspacing="0" width="100%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR height="32"><TD title="ToolTip"><FONT size="5" color="#fffff"><B><CENTER>Licht</CENTER></B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\UnderConstruction.jpg" align="baseline"  alt="" width="105" height="59"></CENTER></P>
+<BLOCKQUOTE>
+<MENU>
+<LI><A href="#Light">Licht</A></LI>
+<LI><A href="#LightDarkBloomFase">Licht en donker met de bloeifase</A></LI>
+<LI><A href="#LightBloom">Bloei lamp</A></LI>
+<LI><A href="#LightBloom120W">Bloei lamp120W</A></LI>
+<LI><A href="#LightBloom240W">Bloei lamp 240W</A></LI>
+<LI><A href="#LightBloomDIY">Bloom DIY</A></LI>
+<LI><A href="#LightBloomWireConnections">Bloom Wire Connections</A></LI>
+<LI><A href="#LightBloomDriverMeanWellModelEncoding">Bloom Driver Mean Well Model Encoding</A></LI>
+<LI><A href="#LightBloomDriver150W">Bloom Driver 150W</A></LI>
+<LI><A href="#LightBloomDriver240W">Bloom Driver 240W</A></LI>
+<LI><A href="#LightBloomDriverDimmer">Dimmer Module</A></LI>
+<LI><A href="#LightRealTimeClock">Real Time Clock Module DS3231</A></LI>
+<LI><A href="#LightMoverUltraSonicSensor">Ultra Sonic Sensor HC-SR04</A></LI>
+<LI><A href="#LightMover">Mover</A></LI>
+<LI><A href="#LightMoverCNCShield">CNC Shield V3</A></LI>
+<LI><A href="#LightMoverDriverStepper">Driver stepper DRV8825</A></LI>
+<LI><A href="#LightMoverMotor">Nema 17 Stepper Motor</A></LI>
+<LI><A href="#LightBloomLift">Lift</A></LI>
+<LI><A href="#LightBloomHogedruk">Hogedruk Lamp</A></LI>
+
+</MENU>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<!--Starts TABLE -->
+<DIV id="Light">
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Licht</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>Er zijn 2 soorten lichtbronnen nodig. die verschillen van wattage en in het kleuren spectrum.</STRONG></P>
+<P>
+<MENU>
+<LI> 1.	Voor de Bloei-fase.</LI>
+<LI> 2.	Vegatieve - ofwel groeifase, tevens voor de stekken.</LI>
+</MENU>
+</P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+
+Licht berekeningen uit datasheets PAR/PPF/YPF/PPFD/lux/lumen 
+<!--Forum: https://www.weedforum.eu/wietforum/topic/5587-licht-berekeningen-uit-datasheets-parppfypfppfdluxlumen/  -->  
+c
+<iframe width="640" height="360" src="https://www.youtube.com/embed/UlM5uvO7sao?list=WL" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<P></P>
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightVisible">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Zichtbaar licht</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>Straling tussen 380 en 740 nm (nanometer) van het zonnespectrum wordt als zichtbaar licht beschouwd.</STRONG>
+<BR>Het menselijk oog  is het meest  gevoelig  voor een geel- groene kleur met een piek bij 550 nm.</P>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightColorSpectrum.jpg" align="baseline"  alt="" width="779" height="183"></CENTER></P>
+
+<TABLE cols="4" width="94%" border="1" Align="center" Border="0">
+<TR>
+<TD width="10%" align="left"><B>Golflengte</B></TD>
+<TD width="12%" align="left"><CENTER><B></B></TD>
+<TD width="50%" align="left"><CENTER><B>240W</B></TD>
+<TD width="28%" align="left"><CENTER><B>240W</B></TD>
+</TR>
+<TR><TD><B>180-280nm</B></TD><TD>UVC</TD><TD>Extreem schadelijk en gelukkig bijna volledig geabsorbeerd door de ozonlaag.</TD><TD></TD></TR>
+<TR><TD><B>280-315nm</B></TD><TD>UVB</TD><TD>Oorzaak van zonnebrand en vermoed wordt dat dit het THC niveau verhoogt (!)</TD><TD></TD></TR>
+<TR><TD><B>315-400nm</B></TD><TD>UVA</TD><TD>Niet geabsorbeerd door de atmosfeer, beter bekend als black light.</TD><TD></TD></TR>
+<TR><TD><B>380-750nm</B></TD><TD>Zichtbaar</TD><TD>Banden van golflengten vertegenwoordigen zichtbare kleuren.</TD><TD></TD></TR>
+<TR><TD><B>700 nm-1mm</B></TD><TD>Infrarood</TD><TD>Niet zichtbaar boven de 750nm, maar merkbaar als hitte op de huid.</TD><TD></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightCalcPAR">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Wat is PAR ( Photosynthetic Active Radiation )</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<EM><B>Photosynthetic Active Radiation = Fotosynthetische actieve straling</B></EM>
+<P><STRONG>PAR is de straling tussen 400 en 700nm (nanometer) van het zonnespectrum kan worden gebruikt door fototrope organismen, zoals planten om fotosynthese te stimuleren.</STRONG>
+<BR>PAR heeft twee meeteenheden namelijk PPF en YPF.
+<BR>Zie de grafiek.</P>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightPAR.jpg" align="baseline"  alt="" width="501" height="262"></CENTER></P>
+<P>Bronnen: 
+<BR><A href="https://en.wikipedia.org/wiki/Photosynthetically_active_radiation">Photosynthetically Ative Radiation</A>
+<BR><A href="https://fluence.science/science/par-ppf-ppfd-dli/">PAR-PPF-PPFD-DLI</A>
+<BR><A href="https://chilledgrowlights.com/education/understanding-led-grow-light-specs">Understanding LED Grow Light Specs</A>
+<BR><A href="http://www.pacificlightconcepts.com/the-science/">The Science</A></P>
+
+<P>Twee filmpjes van Everest Fernandez:</P>
+<iframe width="639" height="384" src="https://www.youtube.com/embed/UYXhWnHBxJw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="639" height="384" src="https://www.youtube.com/embed/ZSvH0ksJG2U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<!--Starts TABLE -->
+<DIV id="LightCalcPPF">
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Wat is PPF( Photosynthetic Photon Flux )</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<EM>Photosynthetic Photon Flux = Fotosynthetische fotonflux</EM>
+<BR><EM><B>Meeteenheid: µmol/s</B></EM>
+<P><STRONG>Straling binnen het bereik van 400 tot 700 nm (PAR) per seconde.</STRONG> 
+<BR>De PPF-waarde van een tuinbouwlamp wordt gemeten met een geïntegreerde bol.
+
+<BR>Bij PPF wordt er enkel gekeken naar het aantal fotonen (energie) zonder onderscheid.
+<BR>Het gaat hier om de totale lichtstroom per seconde.
+<BR>Zie de PAR Curve in de grafiek.</P>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightPPF.jpg" align="baseline"  alt="" width="385" height="364"></CENTER></P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->  
+
+<!--Starts DIFFERENT CONTAINER-->
+<!--Starts TABLE -->
+<DIV id="LightCalcYPF">
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Wat is YPF ( Yield Photon Flux )</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>YPF is het licht dat valt tussen de 360nm en 760nm golflengte.</STRONG>
+<BR>Ook hier gaat het om de totale lichtstroom per seconde.
+<BR>Net als bij PPF wordt YPF wordt ook gemeten in µmol/s maar word er bij YPF rekening gehouden met de fotosynthetische reactie per foton.
+<BR>Zie de YPF oftewel McCree Curve in de eerste grafiek hierboven en de YPF grafiek hierboven.</P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER--> 
+  
+<!--Starts DIFFERENT CONTAINER-->
+<!--Starts TABLE -->
+<DIV id="LightCalcPPFD">
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Wat is PPFD ( Photosynthetic Photon Flux Density)</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>PPFD word gemeten in µmol/m2/s en is de gemiddelde PPF per m2.</STRONG>
+<BR>PPFD is PPF gedeeld door het totale oppervlak.</P>
+ 
+<P>Bijvoorbeeld: <CODE>PPFD=PPF (1500 µmol/s) / 2m2 = 750 µmol/m2/s (PPFD)</CODE></P> 
+
+<P>Dit geeft geen exacte weergave van de werkelijkheid maar enkel wat er op systeem niveau geleverd word in de ruimte.
+<BR>Het geeft je een redelijk goede indicatie als je geen meetapparatuur voorhanden hebt aan de hand van de specs.
+<BR>Normaliter zou je dit meten met een PAR meter op zoveel mogelijk punten.
+<BR>Al deze meetpunten tel je dan bij elkaar op en hier neem je het gemiddelde van dan heb je de exacte PPFD.</P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER--> 
+  
+<!--Starts DIFFERENT CONTAINER-->
+<!--Starts TABLE -->
+<DIV id="LightCalcYPFD">
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Wat is YPFD ( Yield Photon Flux Density )</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>Ook YPFD wordt gemeten in µmol/m2/s.</STRONG>
+<BR>YPFD is YPF gedeeld door het totale oppervlak.</P>
+<P>Bijvoorbeeld: <CODE>YPFD=YPF (1500 µmol/s) / 2m2 = 750 µmol/m2/s (YPFD).</CODE></P>
+<P>Dit geeft geen exacte weergave van de werkelijkheid maar enkel wat er op systeem niveau geleverd word in de ruimte.
+<BR>Het geeft je een redelijk goede indicatie als je geen meetapparatuur voorhanden hebt aan de hand van de specs.
+<BR>Normaliter zou je dit meten met een PAR meter op zoveel mogelijk punten.
+<BR>Al deze meetpunten tel je dan bij elkaar op en hier neem je het gemiddelde van dan heb je de exacte YPFD.</P>
+<iframe width="639" height="384" src="https://www.youtube.com/embed/ZTpr2ey6-Pk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="639" height="384" src="https://www.youtube.com/embed/XQdTHO-YbX4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<!--Starts TABLE -->
+<DIV id="LightCalcLux">
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Wat is lux (eenheid)</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>Lux is een eenheid van verlichtingssterkte: 1 lux is de verlichtingssterkte voortgebracht door 1 candela.
+<BR>Lees: kaars op een oppervlak loodrecht op de lichtstralen op een afstand van 1 meter van de bron.</STRONG>
+<BR>Lux is het aantal lumen aan op een gedeeld door het oppervlak in m2 dus Lux=lumen/oppervlak in m2.</P>
+<P>Bijvoorbeeld: <CODE>10 lumen op 1 m2 in lux is lux=10 lumen /1 m2= 10 lux.</CODE></P>
+<P>Het probleem met lux en lumen is dat zij enkel het licht zichtbare licht tussen zo'n beetje de 450nm e 650nm tellen.
+<BR>We missen dus nogal wat van het spectrum, maar hier is een oplossing voor de conversie factor daar kom ik later op terug.
+<BR>Zie de grafiek hieronder over wat er met lux en lumen gemeten word.</P> 
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightLux.jpg" align="baseline"  alt="" width="505" height="373"></CENTER></P>  
+<P>Bron:
+<BR><A href="https://nl.m.wikipedia.org/wiki/Lux_(eenheid)">Lux eenheid</A></P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<!--Starts TABLE -->
+<DIV id="LightCalcLumen">
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Wat zijn lumen</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>Lumen is de eenheid voor lichtstroom (flux).</STRONG>
+<BR>Lumen is een maat voor de totale hoeveelheid zichtbaar licht die een lichtbron in alle richtingen uitstraalt. 
+<BR>1 lumen is de lichtstroom van een puntlichtbron (kaars) waarvan het licht in 1 steradiaal gebundeld is en 1 candela uitstraalt.
+<BR>Deze is nogal abstract en laten we even voor wat het is.</P> 
+<P>Het probleem met lux en lumen is dat zij enkel het licht zichtbare lichtentussen zo'n beetje de 450nm e 650nm tellen.
+<BR>We missen dus nogal wat van het spectrum, maar hier is een oplossing voor de conversie factor daar kom ik later op terug.
+<BR>Zie de grafiek hierboven over wat er met lux en lumen gemeten word.</P>  
+<P>Bron:
+<BR><A href="https://nl.m.wikipedia.org/wiki/Lumen_(eenheid)">Lumen eenheid</A></P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<!--Starts TABLE -->
+<DIV id="LightCalcPARWatt">
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Wat is PAR Watt</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>Is het aantal fotosynthetisch active Watts tussen de 400nm en 700nm.</STRONG>
+<BR>Zo'n beetje 99% van het licht van onze 80CRI cob's valt binnen de PAR Curve.
+<BR>Als je de efficiëntie van de led weet dan kun je de PAR Watt berekenen. 
+<BR>Deze bereken je als volgt PAR Watt= efficiëntie in % x verbruikt aantal Watts = PAR Watt</P>
+ 
+<P>We gaan in dit voorbeeld uit van een led welke 50% efficiënt is. 
+<BR>PAR Watts=  efficiëntie (0,5=50%) x 50 Watt= 25 PAR Watt.</P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+  
+<!--Starts DIFFERENT CONTAINER-->
+<!--Starts TABLE -->
+<DIV id="LightCalcPAR">
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Van lumen naar lux omrekenen en lux naar PPF of PPFD en µmol/s per Watt</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P>Nu is het natuurlijk erg leuk om een beetje met cijfertjes te goochelen, althans dat vind ik.
+ 
+<BR>Met deze formules kunnen je een redelijk goede indicatie krijgen van de verschillende waardes die we hierboven behandeld hebben uit de verkregen data uit de datasheets of calculatie tools.
+<BR>Het is geen exacte wetenschap maar dit komt ook door de afrondingen in Watts van de leds want een CXB3590 is eigenlijk maar zon 48/49 Watt op 1400ma.
+ 
+<P>Allereerst hebben we een formule nodig voor als je alleen het aantal lumen weet zoals mij.
+ 
+<BR>Namelijk lux=lumen/oppervlak in m2. Nu we de lux hebben berekend of al hadden hebben we een conversie factor nodig om van lux naar PPFD te gaan.
+<BR>Wietefras geeft aan een conversie factor 70 tot 70,5 te gebruiken welke uit een test komt welke gedaan is met een glazen lens.
+<BR>Zelf kom ik op een conversie factor van 66,5/66,6 uit door rekening te houden met het verlies van de glazen lens, welke je gebruikt is aan jou.
+<BR>Op de website van Apogee staan een aantal conversie factoren voor verschillende lichtbronnen helaas staan onze leds er niet tussen.
+<BR><A href="https://www.apogeeinstruments.com/conversion-ppfd-to-lux/">Conversion PPFD to Lux</A>
+
+<P>Je kan de conversie factor ook zelf berekenen enkel heb je hiervoor wel een testrapport nodig zoals degene die Wietefras aanhaalde welke volgens mij deze is van Chilled Growlights van de lamp van GreenGenes van Pacific Light Concepts
+<BR>https://chilledgrowlights.com/independent-lab-reports/lab-test-report-cree-xlamp-cxb3590-3500k-cd-bin
+
+<P>Nu we de conversie factor hebben kunnen we de PPFD gaan berekenen op de volgende wijze. 
+<BR>We gaan in dit voorbeeld uit van een 400W 8x50W op 160lm/w Cree CXB3590 led armatuur welke 1m2 beschijnt.</P>
+<P><B>lux</B>= lumen (400W x 160lm/W=64.000 lumen ) / oppervlak (1m2)= 64.000 lux
+<BR><B>PPFD</B>= lux ( 64.000 ) / conversiefactor (66,5)= 962,4  µmol/m2/s PPFD
+<BR><B>PPF</B>= PPFD (962,4) / oppervlak (1m2) = 962,4 µmol/s. PPF
+<P>In dit geval zijn de PPFD en PPF hetzelfde omdat het om 1m2 gaat.</P>
+
+  
+
+<P>Je kunt nu ook berekenen hoeveel µmol/s je per Watt hebt.
+<BR>De totale PPF van 400W is 962,4 dit deel je door het aantal Watts.
+<BR><B>µmol/s per Watt</B>= 962,4/400= 2.406 µmol/s per Watt.</P>
+<P>Ook kan je van lumen naar lux dan naar kilolux en dan met de conversiefactor uit dit onderzoek http://agi32.com/blog/2014/12/10/photometry-and-photosynthesis/ van LED Professional.
+<BR>De conversie factor die hier gebruikt word is 14,6 ( Ik rond hem persoonlijk altijd af op 15 voor het gemak) voor 3500K wel op basis van een ander ledje maar de spectrums van de gelijke Kelvins verschillen nauwelijks van elkaar deze conversie factor kun je dus prima gebruiken voor een indicatie.</P>
+<P>De berekening gaat dan als volgt.
+<BR><B>lux</B>= lumen (400W x 160lm/W=64.000 lumen ) / oppervlak (1m2)= 64.000 lux
+<BR><B>Kilolux</B>= lux (64.000) / 1000= 64
+<BR><B>PPFD</B>= kilolux ( 64 ) x conversiefactor (15)= 960  µmol/m2/s PPFD
+<BR><B>PPF</B>= PPFD (960) / oppervlak (1m2) = 960 µmol/s. PPF </P>
+<P>Je kan ook lumen direct naar PPF omrekenen maar dat is een behoorlijk stuk complexer zoals te zien in het onderzoek, misschien dat Wietefras hier wat uitleg over wil geven? </P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<!--Starts TABLE -->
+<DIV id="LightCalcEfficiency">
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Wat is efficiency ( efficiëntie/rendement )</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>Efficiency is heel simpel gezegd de verhouding tussen het totaal aantal verbruikte Watts en het aantal Watts wat daadwerkelijk omgezet word in nuttige energie in dit geval dus licht.</STRONG>
+<BR>We drukken efficiency uit in procenten (%). 
+<BR><B>Efficiency</B> = Nuttige Watts / Totaal Watts.</P>
+<P>Bijvoorbeeld een led van 100 W: <CODE>Efficiency = Nuttige Watts(35) / Totaal Watts(100) = 0,35 = 35%.</CODE></P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->  
+
+<!--Starts DIFFERENT CONTAINER-->
+<!--Starts TABLE -->
+<DIV id="LightCalcLuminousEfficacy">
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Wat is efficiacy ( Luminous Efficacy / lichtrendement )</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>Efficacy is de verhouding tussen de lichtstroom (flux) in lumen en het opgenomen vermogen in Watts.</STRONG>
+<BR>We drukken efficacy uit in lumen/Watt (lm/W).
+<BR><B>Efficacy</B> = Flux / Totaal Watts.</P>
+<P>Bijvoorbeeld een led van 100 W: <CODE>Efficacy = Flux 10000 / 100 Watt = 100 lumen/Watt (lm/W).</CODE></P>
+<P>Bron:
+<BR><A href="https://en.wikipedia.org/wiki/Luminous_efficacy#Efficacy_and_efficiency">Efficacy en Effeciency</A></P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->   
+
+<!--Starts DIFFERENT CONTAINER-->
+<!--Starts TABLE -->
+<DIV id="LightCalcSPD">
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Wat is SPD ( Spectral Power Distribution )</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>Aan de hand van de SPD grafieken kunnen we zien hoeveel vermogen er per golflengte (nm) aan licht geporduceerd word.</STRONG>
+<BR>Deze grafieken kun je digitaliseren vanuit de datasheets om daarna met formules en tegenwoordig ook tools de LER (Luminous Efficacy of Radiation) en QER (Quantum Efficacy of Radiation) te berekenen.
+<BR>Met de QER en de LER kun je exacte berekeningen maken, maar daar kom ik later nog wel een keer op terug, ik denk dat dit voorlopig wel even genoeg is voor de meesten.
+<P>Bron:
+<BR><A href="https://en.wikipedia.org/wiki/Spectral_power_distribution">Spectral Power Distribution</A></P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->   
+
+<!--Starts DIFFERENT CONTAINER-->
+<!--Starts TABLE -->
+<DIV id="LightCalcBinsDataSheet">
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Nog een beetje info over de leds, <B>datasheets</B>, <B>bins</B> en tools</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>In de datasheets van de verschillende leds worden altijd bins aangegeven.</STRONG>
+
+<BR>Wat is een bin nou eigenlijk, een bin is een bakje waarin de led terecht komt nadat deze getest is op onder andere zijn fotometrische eigenschappen.
+We nemen als voorbeeld een Cree CXB3590 3500K 80 CRI CD bin.
+De CD bin (flux 12.000 tot 13.000)heeft een minimale lumen output (flux) van 12.000@85C of 13.237@25C een stap van zo'n 10% zoals je kan narekenen.
+Wanneer deze led getest word op zijn fotometrische eigenschappen en blijkt dat deze bijvoorbeeld wel 3500K produceert maar een minimale lumen output (flux) heeft van 11.500@85C komt deze in een lagere bin terecht. In dit geval komt de led in de CB bin (flux 11.000 tot 12.000) want deze heeft een minimale lumen output (flux) van 11.000@85C of 12.134@25C.
+Zoals je ziet is het verschil tussen een bin dus zo'n 10% niet meer niet minder.
+Dit zie je ook terug in de lm/w die ligt op 1400ma bij de CD bin op 164 en bij de CB bin op 150lm/w dat scheelt 164/150=1,09  dat is een verschil van 9%.
+De 7% tolerantie op de metingen die Wietefras benoemt klopt maar elke meetapparatuur heeft zijn eigen toleranties.
+Dat wekt dan dus bij mij de vraag op wat zijn de toleranties van de meetapparatuur van anderen.
+En wat maakt die apparatuur beter dan die van een miljarden bedrijf?
+Als we kijken naar de test van Chilled met de CXB3590 daar komt 156lm/w uit, volgens de calculatie tool is dat 164lm/w een verschil van 156/164= 0.95 dat is een verschil van 5% dat is ruim binnen de marges die Cree aangeeft.
+En veel lager dan de foutmarge die Wietefras benoemt van 20% voor de bins + 7% foutmarge op de metingen voor een totaal van 27% afwijking in het ergste geval.
+Dat is zoals hierboven uitgelegd gewoon niet mogelijk.
+Volgens de marges van Wietefras zou het in het ergste geval uitkomen op 164x0,73 = 119 lm/w dat is gelukkig niet zo.
+
+https://youtu.be/SFrodivy6L8
+  
+<P>Bron:
+<BR><A href="http://agi32.com/blog/2014/12/10/photometry-and-photosynthesis/">Spectral Power Distribution</A>
+<BR><A href="https://chilledgrowlights.com/independent-lab-reports/lab-test-report-cree-xlamp-cxb3590-3500k-cd-bin">Spectral Power Distribution</A>
+<BR><A href="https://en.wikipedia.org/wiki/Photosynthetically_active_radiation">Spectral Power Distribution</A>
+<BR><A href="https://fluence.science/science/par-ppf-ppfd-dli/">Spectral Power Distribution</A>
+<BR><A href="https://chilledgrowlights.com/education/understanding-led-grow-light-specs">Spectral Power Distribution</A>
+<BR><A href="http://www.pacificlightconcepts.com/the-science/">Spectral Power Distribution</A>
+<BR><A href="https://www.apogeeinstruments.co.uk/conversion-ppfd-to-lux/">Spectral Power Distribution</A> 
+<BR><A href="http://pct.cree.com/dt/index.html">Spectral Power Distribution</A>
+<BR><A href="https://nl.m.wikipedia.org/wiki/Lumen_(eenheid)">Spectral Power Distribution</A> 
+<BR><A href="https://nl.m.wikipedia.org/wiki/Lux_(eenheid)">Spectral Power Distribution</A></P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<P>Voor degene die hier graag nog wat meer over willen lezen zijn dit een paar leuke links: 
+<P>Bronnen:
+<BR><A href="https://nl.wikipedia.org/wiki/Rendement_(energie)">Spectral Power Distribution</A>
+<BR><A href="https://nl.wikipedia.org/wiki/Specifieke_lichtstroom">Spectral Power Distribution</A>
+<BR><A href="http://www.rollitup.org/t/math-behind.868988/">Spectral Power Distribution</A></P>
+<P></P><P></P><P></P>
+
+
+https://www.royalqueenseeds.nl/blog-het-kweken-van-cannabis-het-lichtspectrum-en-manieren-om-de-hoeveelheid-thc-te-verhogen-n269https://www.royalqueenseeds.nl/blog-zou-uv-licht-de-thc-productie-in-cannabisplanten-kunnen-stimuleren-n314
+<P></P><P></P><P></P><P></P>
+<!--RQS Info   --><H1><P>PAR EN PPFD BIJ DE BEREKENING VAN HET WATTAGE</P></H1>
+<P>Over het algemeen ligt de minimale hoeveelheid breed-spectrum licht die een cannabisplant nodig heeft rond de 9000lm per vierkante meter.
+<BR>Het optimale niveau ligt boven de <B>20.000lm/m²</B>.
+<BR>Krachtige groei en bloei van binnenplanten is echter afhankelijk van de hoeveelheid licht op specifieke golflengten die fotosynthese activeren.
+<BR>Daarom behelzen led-kweeklampen radiometrische systemen om te meten hoeveel fotonen uitgestraald worden in de PAR-kleurfrequenties die we eerder noemden.</P>
+<P>In de tuinbouw is PPFD (photosynthetic photon flux density) de algemene maatstaf voor de hoeveelheid fotonen die per seconde in een vierkante meter terechtkomt, gemeten in micromol (µmol/m²/s).
+<BR>Indien de PPFD van een kweeklamp bekend is, kunnen we de radiometrische efficiëntie van de lamp berekenen en verschillende lichtsystemen vergelijken op basis van de verhouding PPFD:watt.</P>
+<P>ZON, LAMPEN EN DE CORRECTE FOTONISCHE DRUK</P>
+<P>Wanneer het <B>hoogzomer</B> is, bereikt de middagzon de aarde op een zonnestand van rond de 45° met een fotosynthetisch vermogen van <B>1200–2000 PPFD</B>.
+<BR><B>Zaailingen, stekken en moederplanten</B> van cannabis zijn echter al tevreden met een <B>PPFD</B> van <B>200–400µmol/m²/s</B>
+<BR>Cannabisplanten vereisen in de <B>vegetatieve fase</B><B>400–600µmol/m²/s</B>en in de <B>bloeifase</B>normaal gesproken <B>600-1500µmol/m²/s</B>met atmosferische gehaltes CO2.
+<BR>Onderzoek toont aan dat de productiefste <B>PPFD</B> voor cannabis <B>1500–2000µmol/m²/s</B> is, met een <B>temperatuur</B> van <B>25–30°C</B> en de natuurlijke <B>CO2</B> verhoogd tot <B>750ppm</B>.</P>
+<P>Cannabis is een veeleisende plant. Straling boven de grenswaarden van een variëteit, levensstadium of omgevingsfactoren verhoogt echter niet noodzakelijkerwijs de opbrengst.
+<BR>Omgekeerd kan teveel fotonische druk schade aan de bladeren en toppen veroorzaken.
+<BR>Met andere woorden: de topproductie neemt toe wanneer de cannabisplant <B>20-30 mol</B> aan PAR-licht ontvangt per dag, bij 30-40 mol vervlakt dit en boven de 40 mol neemt het af.</P><P>Wil je bepalen wat de juiste hoeveelheid licht is voor je teelt?
+<BR>Vermenigvuldig dan de lengte van je kweekruimte met de breedte om het kweekoppervlak te berekenen.
+<BR>Dat getal vermenigvuldig je vervolgens met de gewenste PPFD-waarde.
+<P>Stel dat je kweekruimte 250cm lang en 80cm breed is.
+<BR>Dan is je teeltoppervlak 2,5m x 0,8m = 2m².
+<BR>Als je een bloeiend bladerdak van zo’n 2m² wenst en wilt experimenteren met een PPFD-waarde van 500µmol, dan heb je simpelweg 1000µmol/m²/s nodig.
+<BR>Dit resultaat deel je vervolgens door de PPFD per watt aan licht, om het benodigde wattage te berekenen.</P>
+
+<P>DE ‘WATT PER VIERKANTE METER’-REGEL: HOEVEEL PLANTEN KUN JE KWEKEN?</P>
+<P>Ledsystemen produceren een hogere PAR dan MH, HPS en andere soorten lampen. 
+<BR>Ondanks dat vereisen je planten ongeveer dezelfde hoeveelheid watt per vierkante meter om een oogst te genereren vergelijkbaar met die van traditionele HID-lampen.
+<BR>Houd er tevens rekening mee dat ledsystemen vaak als krachtiger worden aangeprezen dan het feitelijke elektrische vermogen.
+<BR>Het is echter niet zo dat een 400W-led eenzelfde oppervlak beslaat als een 1000W-HPS-lamp.
+<BR>Hier is een algemeen overzicht van het benodigde vermogen om vitale cannabisplanten te kweken met verschillende verlichtingssystemen.
+<BR>In de vroege vegetatieve fase vereisen ze ongeveer de helft hiervan.
+
+<P>Als maatstaf: HPS-lampen kunnen ongeveer de volgende oppervlakte beslaan:
+<MENU>
+<LI>  250W =  0,5–1m²</LI>
+<LI>  400W = 1–1,5m²</LI>
+<LI>  600W = 1,3–2m²</LI>
+<LI>1000W = 1,8–3m²</LI>
+</MENU>
+</P>
+
+<P>Ledlampen kunnen ongeveer de volgende oppervlakte beslaan:
+<MENU>
+<LI>120W = 0,5m²  = 1 plant</LI>
+<LI>200W = 0,8m²  = 2 planten</LI>
+<LI>280W = 1,0m²  = 4 planten</LI>
+<LI>350W = 1,5m²  = 6–8 planten</LI>
+</MENU>
+</P>
+
+<P>Wil je een idee krijgen van de hoeveelheid lichtintensiteit waaraan je je planten blootstelt?</P>
+<BR>Dan kun je een luxmeter aanschaffen om de lichtintensiteit op verschillende punten in het bladerdak te meten.
+<BR>Ook kun je een theoretische berekening doen van de straling die een lamp in lumen levert in verhouding tot het teeltoppervlak.
+<BR>Om de hoeveelheid lux op het bladerdak te berekenen, deel je het aantal lumen van de verlichting gewoonweg door het aantal vierkante meter belicht oppervlak.
+<BR>Wanneer je een lamp die 100.000lm produceert op een afstand van 1m van de toppen van de planten plaatst, dan belicht deze een oppervlak van 1m², met een intensiteit van 100.000lx (100.000lm ÷ 1m = 100.000lx).
+<BR>Hangt de verlichting er slechts 0,5m boven? Dan ontvangt het bladerdak 100.000lm ÷ 0,5m = 200.000lx.</P>
+
+<P>Helaas neemt de lichtintensiteit af met een factor gelijk aan het kwadraat van de afstand tussen de bron en het verlichte object.
+<BR>Het plaatsen van dezelfde lamp op een hoogte van 2m betekent dat de lichtbundel vergroot, zodat deze 4m² beslaat, maar slechts met 25.000lx.
+<BR>Zodoende heb je 4 planten nodig om de hypothetische 100.000lx over het gehele kweekoppervlak te bereiken.</P>
+
+<P>LED: REGELS VOOR DE JUISTE AFSTAND</P>
+<P>Ledsystemen blijven koeler dan HID-lampen, maar vereisen nog wel verkoeling om onbedoelde verbranding van je planten te voorkomen.
+<BR>Ledlampen geven een aanzienlijke hoeveelheid lichtdruk, ook bij relatief lage temperaturen.
+<BR>De hoeveelheid licht zelf, dus niet de warmte, kan lichtverbranding en verbleking van bladeren veroorzaken.</P>
+
+<P>Verschillende modellen led-kweeklampen behelzen diverse optimale afstanden tot planten.
+<BR>Meestal doen producenten ook aanbevelingen bij hun producten.
+<BR>Begin gewoonweg op een gemiddelde afstand binnen het aanbevolen bereik en houd je planten de daarop volgende dagen goed in de gaten.
+<BR>Hang de lichten hoger als je merkt dat bladeren verbleken of verbrande puntjes vertonen.
+<BR>Zijn je planten tevreden? Hang het led-paneel dan iets dichterbij.
+<BR>Echter, nooit zoveel dat de bovenste bladeren bleek, geel of bruin worden.</P>
+
+<P>Krachtige ledpanelen met meer dan 300W dien je op minstens 70cm afstand van het bladerdak te houden en geleidelijk te verlagen in de bloeifase.
+<BR>Als algemene richtlijn geldt dat ledlampen van 200-400W 30-70cm van de planten moeten hangen, terwijl lampen van 450-600W een afstand van 50-80cm vereisen.
+<BR>Systemen met hogere wattages moet je zelfs nog hoger hangen.
+<BR>Houd je planten daarbij goed in de gaten wanneer je een nieuwe lamp gaat gebruiken.</P>
+
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightLEDDistance.jpg" align="baseline"  alt="" width="569" height="325"></CENTER></P>
+<P>
+<BR>
+
+</P>
+
+<P>Fotosynthese is het omzetten van koolstofdioxide(CO2), water en licht in bouwstoffen voor de plant.</P>
+<MENU>
+<LI>Intensiteit - Bepaalt de groeisnelheid, hoeveelheid en kwaliteit van de bloemen.
+<LI>Spectrum 
+<MENU>
+<LI>Blauw voor de groei.
+<LI>Rood voor de bloei.</LI>     
+</MENU>
+</MENU>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightDarkBloomFase">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Licht en donker met de bloeifase</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>De bloei-fase is een zeer belangrijke fase, dit is het moment om te knallen en de plant krijgt de zomer en de nazomer in één alleen maar door, dagelijks, 12 uur licht te krijgen.</STRONG></P>
+<P>Donker is net zo belangrijk want van enig licht tijdens schiet de plant in de stress wat als gevolg kan hebben dat die zaad of hybride verschijnselen krijgt.
+<BR>Vandaar dat de kast op <A href="file://C:\EUreka\Public\Three Musketeers\Training\Dutch\ElectricLock.htm">slot</A> blijft.</P>
+<P>
+<BR>Met een dag/nachttarief hebt,  brandt de lamp op het 
+<MENU>
+<LI>8 uur op goedkope tarief.</LI>
+<LI>4 uur op het dure tarief</LI>
+</MENU>
+</P>
+<BR>Of je de 4 dure voor of na het goedkoper tarief doet, bepaalt of je liever s'ochtends of s'avonds aan het werk bent.
+ in deze ruimte voor t dieven en extra speciale voeding in de pot te brengen(in één handeling).
+<BR>
+</P><P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightBloom">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Bloei lamp</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>Er is gekozen voor Samsung h-influx LH351B diode/LED vanwege:</STRONG></P>
+LightSamsungLM301B-LM561C3000K+Epistar660nm[spectrum]
+<MENU>
+<LI>Samsung is een grootte speler en heeft sinds 2016 zich gericht op de tuinbouw.</LI>
+<LI>De warmte van de lichtbron is het laagst ten opzichte van andere lampen, waardoor de lamp dichter op de plant staat voor maximale efficiency. 
+<BR>Daarmee wordt de hoogte van de kast kleiner, wat dan weer betekent minder ‘duur’ klimaat.</LI>
+</MENU>
+
+<P><STRONG>Het board en armatuur QB vanwege:</STRONG></P>
+<MENU>
+<OL>Heeft een board met een specificatie gericht op de Bloei, met nog eens met far red en IR red.</OL>
+<OL>Passieve koeling van de platen door een zwarte heatsink.</OL>
+<OL>Belicht de juiste, net iets meer dan een 0,60 x 0,60, oppervlakte (kast 120 x 60 dus 2 stuks!)</OL>
+<OL>Heeft een zeer klein en slank uiterlijk, doordat de transformator apart buiten de kast geplaatst kan worden, krijgt de lamp zijn ‘High-Tech’ uitstraling.</OL>
+<OL>Minst aan verbruik met de beste waardes.</OL>
+<OL>Kan aangeknutseld worden met betrekking tot plaatsing van afstandssensoren en ophangsysteem voor de motor.</OL>
+<OL>DIY. Wat scheelt op de kosten bij de aanschaf.
+<BR>Binnen 20 minuten in elkaar geplaatst.</OL>
+</MENU>
+<!--Starts TABLE -->
+<TABLE cols="3" width="40%" border="1" Align="center">
+<TR>
+<TD width="30%" align="left"><B>Wattage</B></TD>
+<TD width="35%" align="left"><CENTER><B>120W</B></TD>
+<TD width="35%" align="left"><CENTER><B>240W</B></TD>
+</TR>
+<TR><TD><B>Board</B></TD><TD></TD><TD>2X </TD></TR>
+<TR><TD><B>LED</B></TD><TD></TD><TD></TD></TR>
+<TR><TD><B>Pieces</B></TD><TD>288</TD><TD>2X 288</TD></TR>
+<TR><TD><B></B></TD><TD colspan="2">Full spectrum 3000 K mix 660nm</TD></TR>
+
+<TR><TD><B></B></TD><TD></TD><TD></TD></TR>
+<TR><TD><B></B></TD><TD></TD><TD></TD></TR>
+<TR><TD><B></B></TD><TD></TD><TD></TD></TR>
+<TR><TD><B></B></TD><TD></TD><TD></TD></TR>
+
+<TR><TD colspan="3" align="center"><B>TEST</B></TD></TR>
+<TR><TD><B>Test Quantumboard</B></TD><TD colspan="2"><A href="https://www.youtube.com/watch?v=O7-4TDQSkS8&t=5s"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\YouTube.gif" align="baseline"  alt="" width="110" height="25"></A></TD></TR>
+<TR><TD><B>Gepubliceerd</B></TD><TD colspan="2">23 jan. 2019</TD></TR>
+<TR><TD><B>Driver used</B></TD><TD colspan="2">Meanwell HLG-120H-54B</TD></TR>
+<TR><TD><B>Test area</B></TD><TD colspan="2">60cm x 60cm area with silver mylar reflective walls</TD></TR>
+<TR><TD><B>Hanging height</B></TD><TD colspan="2">35cm</TD></TR>
+<TR><TD><B>Power consumed</B></TD><TD colspan="2">130 watts</TD></TR>
+
+<TR><TD><B>PPFD output</B></TD><TD colspan="2">266 umols/m2/sec</TD></TR>
+<TR><TD><B>Efficiency</B></TD><TD colspan="2">2.11 Without acrylic sheet.</TD></TR>
+<TR><TD><B></B></TD><TD colspan="2"></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<P>This light is now ETL/CSA certified for commercial applications.</P>
+<P>PAR efficacy: 2.5 umol/j</P>
+<P>Coverage area: Veg: 6' x 6' Flower: 4.5' x 4.5' or 5' x 5'</P>
+<P>Mounting height: Flower: 18"-24" Veg: 24"-36"</P>
+<P>Thermal management: Passive cooling</P>
+<P>Full spectrum 3000 K mix 660nm 240 W plant licht boord koellichaam koeling dimbare vrij DIY groeien licht Kits voor veg/bloom</P>
+<P>href https://nl.aliexpress.com/item/Full-spectrum-3000-K-mix-660nm-240-W-plant-licht-boord-koellichaam-koeling-dimbare-vrij-DIY/32987477281.html?spm=a2g0z.search0104.3.13.4e587ea88kxoCj&transAbTest=ae803_4&ws_ab_test=searchweb0_0%2Csearchweb201602_4_10065_10068_319_317_10696_10084_453_10083_454_10618_10304_10307_10820_10821_537_10302_536_10843_10059_10884_10887_321_322_10103%2Csearchweb201603_52%2CppcSwitch_0&algo_pvid=40d6da81-1eac-4a73-b816-1ddf6e2341d0&algo_expid=40d6da81-1eac-4a73-b816-1ddf6e2341d0-1 </P>
+ 
+<P>Specificatie:</P>
+<MENU> 
+<OL>LED (Aantal): 288 pcs/board</OL>
+<OL>Driver: MeanWell ELG-150-48B, ELG-240-48B</OL>
+<OL>Wall Trekken Vermogen: 120 W/240 W</OL>
+<OL>Light Kleur: 3000 k of 3000 K mix 660nm</OL>
+<OL>Ingangsspanning: 110Vac/240VAC</OL>
+<OL>Frequentie: 50Hz/60Hz</OL>
+<OL>LED Merk: Samsung LM301B/LM561C 3000 K, Epistar 660nm</OL>
+<OL>levensduur: 50000hrs +</OL>
+<OL>N.W: 1 KG (G.W: 2.5 KG)</OL>
+<OL>KoelLichaam grootte: 300*195*10mm/600*195*10mm</OL>
+</MENU> 
+<P>Voorzichtigheid:Niet waterdicht, Niet in de regen en of in het water!</P>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\Light288PcsSamsungLM301B[chip].png" align="baseline"  alt="" width="994" height="506"></CENTER></P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightBloom120W">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Bloei lamp120W</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightSingleQuantumBoard288PcsSamsungLM301B-LM561C3000K+Epistar660nm[diagonal].png" align="baseline"  alt="" width="762" height="358"></CENTER></P><P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightSingleQuantumBoard288PcsSamsungLM301B-LM561C3000K+Epistar 660nm[heatsink].png" align="baseline"  alt="" width="952" height="297">
+<img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightSingleQuantumBoard288PcsSamsungLM301B-LM561C3000K+Epistar 660nm[sidediagonal].png" align="baseline"  alt="" width="541" height="451"></CENTER></P>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightSingleQuantumBoard288PcsSamsungLM301B-LM561C3000K+Epistar 660nm[heatsinksize].png" align="baseline"  alt="" width="645" height="474">
+<img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightSingleQuantumBoard288PcsSamsungLM301B-LM561C3000K+Epistar 660nm[parvalue].png" align="baseline"  alt="" width="1000" height="641"></CENTER></P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightBloom240W">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Bloei lamp 240W</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightTwinQuantumBoard576PcsSamsungLM301B-LM561C3000K+Epistar 660nm[diagonal].png" align="baseline"  alt="" width="1000" height="314"></CENTER></P>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightTwinQuantumBoard576PcsSamsungLM301B-LM561C3000K+Epistar 660nm[on1].png" align="baseline"  alt="" width="1000" height="283"></CENTER></P>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightTwinQuantumBoard576PcsSamsungLM301B-LM561C3000K+Epistar 660nm[parvalue].png" align="baseline"  alt="" width="1000" height="641"></CENTER></P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightBloomParOutSpectrum">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Bloom ParOut & Spectrum</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightTwinQuantumBoard576PcsSamsungLM301B-LM561C3000K+Epistar 660nm[parvalue].jpg" align="baseline"  alt="" width="1097" height="531"></CENTER></P>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightSamsungLM301B-LM561C3000K+Epistar660nm[spectrum].png" align="baseline"  alt="" width="1000" height="641"></CENTER></P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightBloomDIY">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Bloom DIY</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightDIYQuantumBoard[delivery].png" align="absmiddle" alt="" width="807" height="873"></CENTER></P>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightAccessoiresWithDimmerVersion.png" align="baseline" alt="" width="979" height="329"></CENTER></P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightBloomWireConnections">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Bloom Wire Connections</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightDimmerWireConnections.png" align="baseline" alt="" width="999" height="792"></CENTER></P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightBloomDriverMeanWellModelEncoding">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Bloom Driver Mean Well Model Encoding</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightDriverMeanWellModelEncoding.png" align="baseliner" alt="" width="750" height="306"></CENTER></P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightBloomDriver150W">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Bloom Driver 150W </B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightDriverMeanWell ELG-150-48B.png" align="baseline" alt="" width="699" height="418"></CENTER></P>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightDriverMeanWell ELG-150-48B[spec].png" align="baseline" alt="" width="744" height="1108"></CENTER></P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+<!--Starts TABLE -->
+<TABLE cols="2" width="40%" border="1" Align="center">
+<TR><TD colspan="2"><B>Eigenschappen</B></TD></TR>
+<TR><TD width="30%" align="left"><B></B></TD><TD width="70%" align="left"></TD></TR>
+<TR><TD><B>Notatie</B></TD><TD></TD></TR>
+<TR><TD colspan="2"></TD></TR>
+<TR><TD colspan="2"></TD></TR>
+<TR><TD colspan="2"></TD></TR>
+<TR><TD colspan="2"></TD></TR>
+<TR><TD colspan="2"></TD></TR>
+<TR><TD colspan="2"></TD></TR>
+<TR><TD><B>Bestelling</B></TD><TD><A href="https://www.meanwell-web.com/nl-nl/ac-dc-single-output-led-driver-mix-mode-cv-cc-with-elg--150--48b?returnurl=%2fnl-nl%2fsearch%3fq%3delg-150-48b%26item%2bdimming%2btechnology%3dpwm%23elg-150-48b"></A>150W Driver</TD></TR>
+<TR><TD><B>Prijs</B></TD><TD></TD></TR>
+<TR><TD><B>DIY</B></TD><TD colspan="2"><A href=""><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\YouTube.gif" align="baseline"  alt="" width="110" height="25"></A></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightBloomDriver240W">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Bloom Driver 240W </B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightDriverMeanWell ELG-240-48B.png" align="baseline"  alt="" width="734" height="482"></CENTER></P>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightDriverMeanWell ELG-240-48B[spec].png" align="baseline" alt="" width="719" height="1157"></CENTER></P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightBloomDriverDimmer">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Dimmer Module</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>Deze module zorgt ervoor dat de Lamp kan dimmen.</STRONG>
+<BR>
+<BR></P>
+http://www.meanwell.eu/ExclusivePDF/DIMMER-NOTE.pdf
+<P>
+<BR></P>
+<P></P>
+<P></P>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\UnderConstruction.png" align="baseline" alt="" width="105" height="59"></CENTER></P>
+<!--Starts TABLE -->
+<TABLE cols="2" width="40%" border="1" Align="center">
+<TR><TD colspan="2"><B>Eigenschappen</B></TD></TR>
+<TR><TD width="30%" align="left"><B></B></TD><TD width="70%" align="left"></TD></TR>
+<TR><TD><B>Notatie</B></TD><TD></TD></TR>
+<TR><TD colspan="2"></TD></TR>
+<TR><TD colspan="2"></TD></TR>
+<TR><TD colspan="2"></TD></TR>
+<TR><TD colspan="2"></TD></TR>
+<TR><TD colspan="2"></TD></TR>
+<TR><TD colspan="2"></TD></TR>
+<TR><TD><B>Bestelling</B></TD><TD><A href="https://opencircuit.be/Product/10129/Real-time-clock-module-DS3231"></A></TD></TR>
+<TR><TD><B>Prijs</B></TD><TD></TD></TR>
+<TR><TD><B>DIY</B></TD><TD colspan="2"><A href=""><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\YouTube.gif" align="baseline"  alt="" width="110" height="25"></A></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightRealTimeClock">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Real Time Clock Module DS3231</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>Deze module zorgt ervoor dat de Arduino op ieder moment het exacte tijdstip weet.</STRONG>
+<BR>Met een geïntegreerde timing-crystal en temperatuur sensor, wat voor meer stabiliteit zorgt.
+<BR>Houd de tijd precies bij, zelfs wanneer de module niet aangesloten is (back-up batterij)</P>
+<P>Real time clock module met de DS3231 chip en is de grote broer van DS1307.
+<BR>Met deze module heb je net het beetje extra precisie en betrouwbaarheid dat de voorganger ontbreekt.</P>
+<P>De chip is volledig compatibel met de voorganger en heeft dus geen aanpassing in de broncode nodig.</P>
+<P>Door de Arduino op de ´sqw´ pin aan te sluiten, is het mogelijk om iedere seconde een interrupt te genereren waarmee sensorwaardes of een display kan worden aangesproken.</P>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightRealTimeClock.png" align="baseline" alt="" width="438" height="373"></CENTER></P>
+<!--Starts TABLE -->
+<TABLE cols="2" width="40%" border="1" Align="center">
+<TR><TD colspan="2"><B>Eigenschappen</B></TD></TR>
+<TR><TD width="30%" align="left"><B>Communicatie</B></TD><TD width="70%" align="left">I2C interface</TD></TR>
+<TR><TD><B>Notatie</B></TD><TD>Jaar - maand - dag    uur : minuut : seconde</TD></TR>
+<TR><TD colspan="2">Aansluiting voor een trigger met interval (1Hz, 4kHz, 8kHz, 32kHz)</TD></TR>
+<TR><TD colspan="2">56 Bytes Non-volatile geheugen</TD></TR>
+<TR><TD colspan="2">Grotere precisie als de DS1307</TD></TR>
+<TR><TD colspan="2">Extra geheugen chip: AT24C32 (32K bytes)</TD></TR>
+<TR><TD colspan="2">Ingebouwde temperatuur sensor (afwijking van ±3 °C)</TD></TR>
+<TR><TD colspan="2">De module wordt geleverd exclusief LIR2032 knoopcel!</TD></TR>
+<TR><TD><B>Bestelling</B></TD><TD><A href="https://opencircuit.be/Product/10129/Real-time-clock-module-DS3231">Real time clock module DS3231</A></TD></TR>
+<TR><TD><B>Prijs</B></TD><TD>€ 2,95</TD></TR>
+<TR><TD><B>DIY</B></TD><TD colspan="2"><A href="https://www.youtube.com/watch?v=RoSVrVVMy0c"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\YouTube.gif" align="baseline"  alt="" width="110" height="25"></A></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightMover">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Mover</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><CENTER></CENTER></P>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightMover.png" align="baseline" alt="" width="962" height="1560"></CENTER></P>
+https://www.banggood.com/HANPOSE-HPV3-Linear-Guide-Openbuilds-V-slot-Linear-Actuator-Cross-Straight-Linear-Module-XY-Axis-with-Nema-17-17HS3401S-Stepper-Motor-for-Reprap-3D-printer-Typewriter-CNC-p-1438615.html?rmmds=search&ID=567375567374&cur_warehouse=CN
+<A href="https://www.youtube.com/watch?v=DZcrrFcs4N4"></A>CNC ver3
+
+<P></P>
+<P></P>
+<P></P>
+<!--Starts TABLE -->
+<TABLE cols="2" width="40%" border="1" Align="center">
+<TR><TD colspan="2"><B>Eigenschappen</B></TD></TR>
+<TR><TD width="30%" align="left"><B>Communicatie</B></TD><TD width="70%" align="left">I2C interface</TD></TR>
+<TR><TD><B>Ex. van de Lift</B></TD><TD colspan="2"><A href="https://www.youtube.com/watch?v=FLKDa4V2ZIo"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\YouTube.gif" align="baseline"  alt="" width="110" height="25"></A></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<P></P>
+<P></P>
+<P></P>
+<!--Starts TABLE -->
+<TABLE cols="7" width="70%" border="1" Align="center">
+<TR><TD colspan="7"><STRONG><CENTER><B>Z-as parts</B></CENTER></STRONG></TD></TR>
+<TR><TD width="30%" align="left"><B>Naam</B></TD><TD width="8%" align="center"><B>Color</B></TD><TD width="8%" align="center"><B>LxBxD</B></TD><TD width="4%" align="center"><B>Aantal</B></TD><TD width="7%" align="center"><B>tot Weight</B></TD><TD width="6%" align="center"><B>tot Price</B></TD><TD width="20%" align="left"><B>Store</B></TD></TR>
+<TR><TD><B>Nema 17</B></TD><TD>Black</TD><TD align="center">LxBxD</TD><TD align="right">Aantal</TD><TD align="right">tot Weight</TD><TD align="right">tot Price</TD><TD><A href="https://www.youtube.com/watch?v=FLKDa4V2ZIo"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\AliExpress.gif" align="baseline"  alt="" width="55" height="13"></A></TD></TR>
+<TR><TD><B>8mm Metric Acme Lead Screw pitch 2mm, Tr8*8-2p (4 starts)</B></TD><TD>Silver</TD><TD align="center">LxBxD</TD><TD align="right">1</TD><TD align="right">tot Weight</TD><TD align="right">tot Price</TD><TD><A href="https://www.youtube.com/watch?v=FLKDa4V2ZIo"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\AliExpress.gif" align="baseline"  alt="" width="55" height="13"></A></TD></TR>
+<TR><TD><B>Lock Collar 8mm Size- ID: 8mm, OD: 14mm, W: 7mm </B></TD><TD>Black</TD><TD align="center">LxBxD</TD><TD align="right">2</TD><TD align="right">tot Weight</TD><TD align="right">tot Price</TD><TD><A href="https://www.youtube.com/watch?v=FLKDa4V2ZIo"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\AliExpress.gif" align="baseline"  alt="" width="55" height="13"></A></TD></TR>
+<TR><TD><B>Nut Plate for 8mm Metric Acme Lead Screw</B></TD><TD>Black</TD><TD align="center">LxBxD</TD><TD align="right">1</TD><TD align="right">tot Weight</TD><TD align="right">tot Price</TD><TD><A href="https://www.youtube.com/watch?v=FLKDa4V2ZIo"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\AliExpress.gif" align="baseline"  alt="" width="55" height="13"></A></TD></TR>
+<TR><TD><B>Flanged Bearing 688ZZ 8x16x5</B></TD><TD>Silver</TD><TD align="center">LxBxD</TD><TD align="right">2</TD><TD align="right">tot Weight</TD><TD align="right">tot Price</TD><TD><A href="https://www.youtube.com/watch?v=FLKDa4V2ZIo"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\AliExpress.gif" align="baseline"  alt="" width="55" height="13"></A></TD></TR>
+<TR><TD><B>M3 Cap Head Screws</B></TD><TD>Black</TD><TD align="center">LxBxD</TD><TD align="right">3</TD><TD align="right">tot Weight</TD><TD align="right">tot Price</TD><TD><A href="https://www.youtube.com/watch?v=FLKDa4V2ZIo"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\AliExpress.gif" align="baseline"  alt="" width="55" height="13"></A></TD></TR>
+<TR><TD><B>Threaded Rod Plate - NEMA 17 Stepper Motor</B></TD><TD>Black</TD><TD align="center"> 53 x 59 x 3</TD><TD align="right">2</TD><TD align="right">tot Weight</TD><TD align="right">tot Price</TD><TD><A href="https://www.youtube.com/watch?v=FLKDa4V2ZIo"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\AliExpress.gif" align="baseline"  alt="" width="55" height="13"></A></TD></TR>
+<TR><TD><B>Self Threading Screws - M3</B></TD><TD>Black</TD><TD align="center">LxBxD</TD><TD align="right">Aantal</TD><TD align="right">tot Weight</TD><TD align="right">tot Price</TD><TD><A href="https://www.youtube.com/watch?v=FLKDa4V2ZIo"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\AliExpress.gif" align="baseline"  alt="" width="55" height="13"></A></TD></TR>
+<TR><TD><B>Xtreme Solid V Wheel,Delrin V Wheel Kit</B></TD><TD>S/B</TD><TD align="center">24x10,4</TD><TD align="right">4</TD><TD align="right">tot Weight</TD><TD align="right">tot Price</TD><TD><A href="https://www.youtube.com/watch?v=FLKDa4V2ZIo"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\AliExpress.gif" align="baseline"  alt="" width="55" height="13"></A></TD></TR>
+<TR><TD><B>Black Angle Corner Connector</B></TD><TD>Black</TD><TD align="center">20x20x3,5</TD><TD align="right">4</TD><TD align="right">tot Weight</TD><TD align="right">tot Price</TD><TD><A href="https://www.youtube.com/watch?v=FLKDa4V2ZIo"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\AliExpress.gif" align="baseline"  alt="" width="55" height="13"></A></TD></TR>
+<TR><TD><B>2040 extruder</B></TD><TD>Silver</TD><TD align="center">LxBxD</TD><TD align="right">1</TD><TD align="right">tot Weight</TD><TD align="right">tot Price</TD><TD><A href="https://www.youtube.com/watch?v=FLKDa4V2ZIo"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\AliExpress.gif" align="baseline"  alt="" width="55" height="13"></A></TD></TR>
+<TR><TD><B>2040 extruder</B></TD><TD>Silver</TD><TD align="center">LxBxD</TD><TD align="right">1</TD><TD align="right">tot Weight</TD><TD align="right">tot Price</TD><TD><A href="https://www.youtube.com/watch?v=FLKDa4V2ZIo"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\AliExpress.gif" align="baseline"  alt="" width="55" height="13"></A></TD></TR>
+<TR><TD><B>End Cap</B></TD><TD>Black</TD><TD align="center">LxBxD</TD><TD align="right">2</TD><TD align="right">tot Weight</TD><TD align="right">tot Price</TD><TD><A href="https://www.youtube.com/watch?v=FLKDa4V2ZIo"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\AliExpress.gif" align="baseline"  alt="" width="55" height="13"></A></TD></TR>
+<TR><TD><B>90 Degree Joining Plate</B></TD><TD>Black</TD><TD align="center">60x60x4</TD><TD align="right">2</TD><TD align="right">tot Weight</TD><TD align="right">tot Price</TD><TD><A href="https://www.youtube.com/watch?v=FLKDa4V2ZIo"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\AliExpress.gif" align="baseline"  alt="" width="55" height="13"></A></TD></TR>
+<TR><TD><B>Flexible Tubing Clamps</B></TD><TD>Black</TD><TD align="center">LxBxD</TD><TD align="right">Aantal</TD><TD align="right">tot Weight</TD><TD align="right">tot Price</TD><TD><A href="https://www.youtube.com/watch?v=FLKDa4V2ZIo"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\AliExpress.gif" align="baseline"  alt="" width="55" height="13"></A></TD></TR>
+<TR><TD><B>Naam</B></TD><TD>Color</TD><TD align="center">LxBxD</TD><TD align="right">Aantal</TD><TD align="right">tot Weight</TD><TD align="right">tot Price</TD><TD><A href="https://www.youtube.com/watch?v=FLKDa4V2ZIo"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\AliExpress.gif" align="baseline"  alt="" width="55" height="13"></A></TD></TR>
+
+</TABLE>
+<!--Ends TABLE -->
+
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightMoverUltraSonicSensor">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Ultra Sonic Sensor HC-SR04</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>De HC-SR04 module meet afstand tot objecten door middel van weerkaatsing van ultrasoon geluid.</STRONG>
+<BR>Dit wordt gedaan door pulsen van 40 kHz af te vuren naar de omgeving, waarna de tijd die nodig is om de terug gekaatste signalen op te vangen wordt gemeten.
+<BR>Door deze tijd te delen door een constante kan de afstand vrij precies worden bepaald (tot wel 0,3 cm precisie!).
+<BR>Werkt met alle harde oppervlaktes (het geluid moet wel teruggekaatst kunnen worden).</P>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightUltraSonicDistance.png" align="baseline" alt="" width="1104" height="780"></CENTER></P>
+<!--Starts TABLE -->
+<TABLE cols="2" width="40%" border="1" Align="center">
+<TR><TD colspan="2"><B>Eigenschappen</B></TD></TR>
+<TR><TD width="30%" align="left"><B>Spanning</B></TD><TD width="70%" align="left">5V</TD></TR>
+<TR><TD><B>Stroom</B></TD><TD><2 mA</TD></TR>
+<TR><TD><B>Output</B></TD><TD>Digitaal, hoog 5V, laag 0V</TD></TR>
+<TR><TD><B>Sensor hoek</B></TD><TD>ongeveer 15 graden</TD></TR>
+<TR><TD><B>Detectie afstand</B></TD><TD>2 cm - 450 cm (meetbaar met; pulse width(uS) / 58 = afstand(cm)</TD></TR>
+<TR><TD><B>Precisie</B></TD><TD>tot wel 0.3cm</TD></TR>
+<TR><TD><B>Input trigger signaal</B></TD><TD>10us hoog</TD></TR>
+<TR><TD><B>Echo signal</B></TD><TD>Hoog voor x uS</TD></TR>
+<TR><TD><B>Bestelling</B></TD><TD><A href="https://opencircuit.be/Product/10037/HC-SR04-Ultrasonische-afstands-detectie-module">Ultra Sonic Sensor HC-SR04</A></TD></TR>
+<TR><TD><B>Prijs</B></TD><TD>€ 2,25</TD></TR>
+<TR><TD><B>DIY</B></TD><TD colspan="2"><A href="https://www.youtube.com/watch?v=88DST3tytLA"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\YouTube.gif" align="baseline"  alt="" width="110" height="25"></A></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightMoverCNCShield">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>CNC Shield V3</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>De CNC Shield v3 is gemaakt voor de aansturing van 3D printers, frezen en graveermachines.</STRONG>
+<BR>Deze shield past op de Arduino UNO. Dit bord heeft 4 sockets voor de installatie van een stappenmotor driver, zoals de DRV8825.
+<BR>Per stappen motor zijn er maar 2 kanalen vereist om deze motor aan te sturen.</P>
+<P>Ook is er een aansluiting voor 2 eindstop switches per motor.</P>
+<P>Door de Arduino op de ´sqw´ pin aan te sluiten, is het mogelijk om iedere seconde een interrupt te genereren waarmee sensorwaardes of een display kan worden aangesproken.</P>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightMoverCNC3.png" align="baseline" alt="" width="1013" height="842"></CENTER></P>
+<!--Starts TABLE -->
+<TABLE cols="2" width="40%" border="1" Align="center">
+<TR><TD colspan="2"><B>Eigenschappen</B></TD></TR>
+<TR><TD colspan="2">GRBL 0.8c compatibel</TD></TR>
+<TR><TD colspan="2">4 aanslutingen, XYZ en A</TD></TR>
+<TR><TD colspan="2">2 eind stops per as (6 in totaal)</TD></TR>
+<TR><TD colspan="2">Spindle aan / uit en richting</TD></TR>
+<TR><TD colspan="2"> Instelbaar voor Micro-Stepping d.m.v. jumpers (niet bijgeleverd)</TD></TR>
+<TR><TD colspan="2">12-36V DC. (De motor driver moet dit wel aankunnen, let hierop bij de installatie)</TD></TR>
+<TR><TD colspan="2">Geleverd zonder stepper drivers</TD></TR>
+<TR><TD width="30%" align="left"><B>Bestelling</B></TD><TD width="70%" align="left"><A href="https://opencircuit.be/Product/10877/CNC-Shield-v3">CNC-Shield-v3</A></TD></TR>
+<TR><TD><B>Prijs</B></TD><TD>€ 5,95</TD></TR>
+<TR><TD><B>DIY</B></TD><TD colspan="2"><A href="https://www.youtube.com/watch?v=RoSVrVVMy0c"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\YouTube.gif" align="baseline"  alt="" width="110" height="25"></A></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightMoverDriverStepper">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Driver stepper DRV8825</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>De DRV8825 is een complete microstepping motor driver met ingebouwde encoder.</STRONG>
+<BR>Deze module kan net als de A4988 driver op 1, 1/2, 1/4, 1/8 en 1/16 step modus werken, maar kan daarbij ook stappen van 1/32 zetten.
+<BR>De driver kan een bipolaire stepper motor tot een vermogen van 35V en ± 2,5A aansturen en werkt met I/O van zowel 3,3V als 5V.</P>
+<P>Deze module heeft dezelfde layout als de A4988 en kan daardoor gewoon omgewisseld worden (let wel op de polariteit, de potmeter zit in dit ontwerp aan de andere kant als de A4988).</P>
+<P>Met slechts 2 data lijnen (step en dir) is deze driver al aan te sturen.</P>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightMoverDRV8825.png" align="baseline" alt="" width="558" height="568"></CENTER></P>
+<!--Starts TABLE -->
+<TABLE cols="2" width="40%" border="1" Align="center">
+<TR><TD width="30%" align="left"><B>Bestelling</B></TD><TD width="70%" align="left"><A href="https://opencircuit.be/Product/11057/DRV8825-Stepper-motor-driver-module-met-gesoldeerde-headers-en-heatsink">DRV8825 Driver stepper</A></TD></TR>
+<TR><TD><B>Prijs</B></TD><TD>€ 3,25</TD></TR>
+<TR><TD><B>DIY</B></TD><TD colspan="2"><A href="https://www.youtube.com/watch?v=veBKwi49mbs"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\YouTube.gif" align="baseline"  alt="" width="110" height="25"></A></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightMoverMotor">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Nema 17 Stepper Motor</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><STRONG>.</STRONG>
+<BR>
+<BR></P>
+<P></P>
+<P></P>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\LightMoverMotor [specs].png" align="baseline" alt="" width="1064" height="754"></CENTER></P>
+<!--Starts TABLE -->
+<TABLE cols="2" width="40%" border="1" Align="center">
+<TR><TD width="30%" align="left"><B>Bestelling</B></TD><TD width="70%" align="left"><A href="https://opencircuit.be/Product/11057/DRV8825-Stepper-motor-driver-module-met-gesoldeerde-headers-en-heatsink">DRV8825 Driver stepper</A></TD></TR>
+<TR><TD><B>Prijs</B></TD><TD>€ 3,25</TD></TR>
+<TR><TD><B>DIY</B></TD><TD colspan="2"><A href="https://www.youtube.com/watch?v=veBKwi49mbs"><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\YouTube.gif" align="baseline"  alt="" width="110" height="25"></A></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightBloomLift">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Lift</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><CENTER></CENTER></P>
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\UnderConstruction.png" align="baseline" alt="" width="941" height="529"></CENTER></P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
+
+<!--Starts DIFFERENT CONTAINER-->
+<DIV id="LightBloomHogedruk">
+<!--Starts TABLE -->
+<TABLE cols="4" cellpadding="0" cellspacing="0" width="96%" background="C:\EUreka\Public\Three Musketeers\BarBetween [H].gif" align="center">
+<TR><TD width="1%"></TD><TD width="1%"><IMG src="C:\EUreka\Public\Three Musketeers\Info.gif"></TD>
+<TD width="1%"></TD><TD title="ToolTip"><FONT size="4" color="#fffff"><B>Hogedruk Lamp</B></FONT></TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<BLOCKQUOTE>
+<P><CENTER></CENTER></P>
+<!--Starts TABLE -->
+<TABLE cols=2 width=350>
+<TR><TD width="35%"><B>Type lamp</B></TD><TD width="20%"><B>Oppervlakte</B></TD></TR>
+<TR><TD width="35%">HPS 250W.</TD><TD width="20%">1 x 0.5m.</TD></TR>
+<TR><TD width="35%">HPS 400W.</TD><TD width="20%">1 X 1m.</TD></TR>
+<TR><TD width="35%">HPS 600W.</TD><TD width="20%">1,2 X 1,2m.</TD></TR>
+</TABLE>
+<!--Ends TABLE -->
+<!--Starts TABLE -->
+<TABLE frame=hsides cols=4 width=350 border=6>
+<TR><TD width="40%" align=right></TD><TD width="20%" align=middle><B>250W</B></TD><TD width="20%" align=middle><B>400W</B></TD><TD width="20%" align=middle><B>600W</B></TD></TR>
+<TR><TD width="40%" align=left><B>CoolTube</B></B></TD><TD width="20%" align=middle colspan=3>20</TD></TR>
+<TR><TD width="40%" align=left><B>Between</B></TD><TD width="20%" align=middle>20-30</TD><TD width="20%" align=middle>30-40</TD><TD width="20%" align=middle>50-60</TD></TR>
+<TR><TD width="40%" align=left><B>Plant</B></TD><TD width="20%" align=middle>70-80</TD><TD width="20%" align=middle>70-80</TD><TD width="20%" align=middle>70-80</TD></TR>
+<TR><TD width="40%" align=left><B>Pot</B></TD><TD width="20%" align=middle colspan=3>20</TD></TR>
+<TR><TD width="40%" align=left><B>Minimum</B></TD><TD width="20%" align=middle><B>130</B></TD><TD width="20%" align=middle><B>140</B></TD><TD width="20%" align=middle><B>160</B></TD></TR>
+<TR></TR>
+</TABLE>
+<!--Ends TABLE -->
+<P><CENTER><img src="file://C:\EUreka\Public\Three Musketeers\Training\Images\UnderConstruction.png" align="baseline" alt="" width="941" height="529"></CENTER></P>
+<P><A href="#Intro"><IMG src="C:\EUreka\Public\Three Musketeers\Top.gif" align="left">Top of Page</A></P>
+</BLOCKQUOTE>
+</DIV>
+<!--Ends DIFFERENT CONTAINER-->
