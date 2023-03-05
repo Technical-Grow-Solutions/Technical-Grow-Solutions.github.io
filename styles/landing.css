@@ -1,0 +1,238 @@
+/* =========== HEADER-Shrink =========== */
+/* =========== SCROLL-Smooth =========== */
+/* =========== SCROLLBAR-Customize =========== */
+/* =========== SCROLL-ToTop-Button =========== */
+/* =========== SCROLLBAR-Indicator =========== */
+:root {
+    /* Font */
+    --font-size: 18px;
+    /* PosY */
+    --el-header-top: 0px;
+    --el-logo-top: 12px;
+    --el-chapter-top: 60px;
+    --el-iframe-top: 84px;    
+    --el-menu-top: 87px;
+    --el-footer-bottom: 0px;
+    --el-footer-credit-padding-top: 6px;
+    /* height */
+    --el-header-height: 60px;
+    --el-chapter-height: 24px;
+    --el-iframe-height: 840px;
+    --el-menu-height: 838px;
+    --el-footer-height: 24px;
+    --el-scroll-width: 8px;
+    /*--el-menu-height: 0px;*/
+    --el-scroll-indicator-height: 2px;
+    
+    /* Radius */
+    --border-radius: 16px;
+    
+    /* Colors */
+    --color-design-purpose: #FF0000;
+    --color-chroma-key-blue: #0033cc;     /*  blue-key: #0047bb ,websafe: #0033cc */
+    --color-chroma-key-green: #009933;    /* green-key: #00b140 ,websafe: #009933 */    
+    --color-ui-background: #1C1C1C;
+    --color-system-background: #111111;
+    --color-text: #fbf0ec;  
+    --color-text-ui: #DBE1D5;
+    --color-text-ui-hover: rgba(0, 128, 0, 0.5);
+    --color-text-shadow1: #000000;
+    --color-text-shadow2: #38fa08;
+    --color-text-shadow3: #001400;
+    --color-slider-handle: #686868;
+    --color-slider-handle-hover: #7B7B7B;
+    --color-slider-track: #343434;
+    --color-logo: #fbf0ec;
+    --color-credit: #c58f51;
+    --color-box-shadow: #01009a;    /*#6e8b68*/
+    --color-border: #343434;
+    --color-mouse-over: #DAA520;
+    --color-design-seperator:rgba(255, 255, 255, 0.12);
+}
+html {
+  scroll-behavior: smooth;
+  overflow: auto;
+  cursor: url(/images/select-right.cur),auto;
+}
+
+body {
+  position: absolute;
+  background-color: var(--color-system-background);
+  color: var(--color-text-ui);
+  font-family: 'Roboto', sans-serif;
+  font-size: var(--font-size);
+  /*margin: 0px auto 0px auto;*/
+  /*padding: 40px 0px 0px 0px;*/
+  overflow-y: show;           /* Hide vertical scrollbar */
+  overflow-x: hidden;         /* Hide horizontal scrollbar */
+  transition: background-color .5s;
+  /*width: 100%;*/
+  cursor: default;
+}
+
+#content {
+  padding: 0px 0px;
+  margin: 40px 0px 0px 36px;
+  width: 100%;
+}
+
+/* =========== HEADER-Shrink =========== */
+#header {
+  background-color: var(--color-ui-background);
+  padding: 4px 0px;
+  color: var(--color-text);
+  text-align: center;
+  font-size: 28px; 
+  font-weight: bold;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  transition: 0.3s;
+  cursor: default;
+}
+
+/* =========== SCROLL-Smooth =========== */
+#scroll-smooth-to-1 {
+  background-color: #111111;;
+}
+#scroll-smooth-to-2 {
+  height: 600px;
+  background-color: yellow;
+}
+
+/* =========== SCROLLBAR-Customize =========== */
+/* SCROLLBAR - width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+/* SCROLLBAR - button */
+/*::-webkit-scrollbar-button {
+  background: #FF00FF;
+  height: 22px;
+}
+*/
+/* SCROLLBAR - track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+/* SCROLLBAR - track - piece */
+::-webkit-scrollbar-track-piece {
+  background: hsl(147, 91%, 17%);
+}
+/* SCROLLBAR - handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(255,0,0,0.8); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+/* SCROLLBAR - handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0000FF; 
+}
+/* SCROLLBAR - thumb */
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(255,0,0,0.4); 
+}
+/* SCROLLBAR - corner */
+/*
+::-webkit-scrollbar-corner {
+  background: #FF0000;
+}*/
+
+/* =========== SCROLL-ToTop-Button =========== */
+#scroll-ToTop-button {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+  }
+  
+  #scroll-ToTop-button:hover {
+    background-color: #555;
+  }
+/* =========== SCROLLBAR-Indicator =========== */
+#scroll-indicator-container {
+  position: fixed;
+  top: 1px;
+  width: 100%;
+  height: var(--el-scroll-indicator-height);
+  background: var(--color-slider-track);
+  display: hidden;
+}
+#scroll-indicator-bar {
+  height: var(--el-scroll-indicator-height);
+  background: var(--color-text-ui-hover);
+  width: 0%;
+}
+
+/* =========== TEXT-Selection-Prevent =========== */
+/* ex. <p class="prevent-select">This text cannot be selected.</p> */
+.prevent-select {
+  -webkit-user-select: none;  /* Safari */
+  -ms-user-select: none;      /* IE 10 and IE 11 */
+  user-select: none;          /* Standard syntax */
+}
+
+/* --------MOBILE DEVICES-------- */
+/* --Samsung J3     2016 res: 1280 x  720 pixels (HD)  -- */
+/* --Samsung A20e   2019 res: 1560 x  720 pixels (HD+) -- */
+/* --Samsung A13    2022 res: 2408 x 1080 pixels (FHD+)-- */
+/* --Samsung A52 5G 2021 res: 2400 x 1080 pixels (FHD+)-- */
+@media screen and (max-width: 1080px) {
+  /* =========== LINK =========== */
+  /* =========== HEADER-Shrink =========== */
+  /* =========== SCROLL-Smooth =========== */
+  /* =========== SCROLLBAR-Customize =========== */
+  /* =========== SCROLL-ToTop-Button =========== */
+  /* =========== SCROLLBAR-Indicator =========== */
+  /* =========== SLIDESHOW =========== */
+  /* =========== PAGINATION =========== */
+  /* =========== BULLIT-Color =========== */
+  /* =========== TEXT-Input =========== */
+  /* =========== TEXT-Selection-Colors =========== */
+  /* =========== BUTTON-hoover =========== */
+  /* =========== SNACKBAR =========== */
+  .article {
+    width: 88%;
+  }
+}
+@media screen and (max-width: 360px) {
+  /* =========== LINK =========== */
+  /* =========== HEADER-Shrink =========== */
+  /* =========== SCROLL-Smooth =========== */
+  /* =========== SCROLLBAR-Customize =========== */
+
+  #article {
+    /*width: 10vw;*/
+    width: 20%;
+    /*max-width: 50%;*/
+    margin: 0px auto 0px auto;
+    /*overflow-x: auto;*/
+    /*padding: 16px 36px 32px 36px;*/
+  }
+  /* =========== SCROLL-ToTop-Button =========== */
+  #scroll-ToTop-button {
+    bottom: 4px;
+    right: 4px;
+  }
+  /* =========== SCROLLBAR-Indicator =========== */
+  /* =========== SLIDESHOW =========== */
+  /* =========== PAGINATION =========== */
+  /* =========== BULLIT-Color =========== */
+  /* =========== TEXT-Input =========== */
+  /* =========== TEXT-Selection-Colors =========== */
+  /* =========== BUTTON-hoover =========== */
+  /* =========== SNACKBAR =========== */
+}
