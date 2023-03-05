@@ -1,63 +1,36 @@
-  /* =========== LINK =========== */
-  /* =========== HEADER-Shrink =========== */
-  /* =========== SCROLL-Smooth =========== */
-  /* =========== SCROLLBAR-Customize =========== */
-  /* =========== SCROLL-ToTop-Button =========== */
-  /* =========== SCROLLBAR-Indicator =========== */
-  /* =========== SLIDESHOW =========== */
-  /* =========== PAGINATION =========== */
-  /* =========== BULLIT-Color =========== */
-  /* =========== TEXT-Input =========== */
-  /* =========== TEXT-Selection-Colors =========== */
-  /* =========== TEXT-Selection-Prevent =========== */
-  /* =========== BUTTON-hoover =========== */
-  /* =========== SNACKBAR =========== */
 :root {
      /* Font */
      --font-size: 18px;
-     --font-size-360: 12px;
+     --font-size-360: 14px;
      /* PosY */
-     --el-header-top: 0px;
-     --el-logo-top: 12px;
-     --el-chapter-top: 60px;
-     --el-iframe-top: 84px;    
-     --el-menu-top: 87px;
-     --el-footer-bottom: 0px;
-     --el-footer-credit-padding-top: 6px;
+     --header-top: 0px;
      /* height */
-     --el-header-height: 60px;
-     --el-chapter-height: 24px;
-     --el-iframe-height: 840px;
-     --el-menu-height: 838px;
-     --el-footer-height: 24px;
-     --el-scroll-width: 8px;
-     /*--el-menu-height: 0px;*/
-     --el-scroll-indicator-height: 2px;
+     /*--header-height: 60px;*/
+     --scroll-width: 8px;
+     --scroll-indicator-height: 2px;
      
      /* Radius */
-     --border-radius: 16px;
-     
-     /* Colors */
-     --color-design-purpose: #FF0000;
-     --color-chroma-key-blue: #0033cc;     /*  blue-key: #0047bb ,websafe: #0033cc */
-     --color-chroma-key-green: #009933;    /* green-key: #00b140 ,websafe: #009933 */    
-     --color-ui-background: #1C1C1C;
-     --color-system-background: #111111;
-     --color-text: #fbf0ec;  
-     --color-text-ui: #DBE1D5;
-     --color-text-ui-hover: rgba(0, 128, 0, 0.5);
-     --color-text-shadow1: #000000;
-     --color-text-shadow2: #38fa08;
-     --color-text-shadow3: #001400;
-     --color-slider-handle: #686868;
-     --color-slider-handle-hover: #7B7B7B;
-     --color-slider-track: #343434;
-     --color-logo: #fbf0ec;
-     --color-credit: #c58f51;
-     --color-box-shadow: #01009a;    /*#6e8b68*/
-     --color-border: #343434;
-     --color-mouse-over: #DAA520;
-     --color-design-seperator:rgba(255, 255, 255, 0.12);
+     --border-radius-small: 8px;
+     --border-radius-midle: 10px;
+     --border-radius-big: 16px;
+
+    /* Colors */
+    /*  blue-key: #0047bb ,websafe: #0033cc */
+    /* green-key: #00b140 ,websafe: #009933 */ 
+    --color-ui-background: #1C1C1C;
+    --color-ui-border: #343434; /*#343434;*/
+    --color-ui-light: #01009a;    /*#6e8b68*/
+    --color-ui-1: rgba(0, 128, 0, 0.1);
+    --color-ui-2: rgba(0, 128, 0, 0.5);
+    --color-ui-3: rgba(0, 128, 0, 0.05);
+    --color-ui-4: red;        
+    --color-text-1: #DBE1D5;   /*#DBE1D5;*/
+    --color-text-2: red;
+    --color-text-3: rgba(0, 100, 0, 0.8);
+    --color-text-hoover: rgba(0, 128, 0, 0.8);
+    --color-shadow-1: rgb(109, 211, 42);  /* rgba(0,0,0,0.5)*/
+    --color-shadow-2: rgb(1, 54, 1);
+    --color-shadow-3: rgba(133, 252, 23, 0.349); /*#001400;*/
  }
 html {
   scroll-behavior: smooth;
@@ -67,26 +40,67 @@ html {
 
 body {
   position: absolute;
-  background-color: var(--color-system-background);
-  color: var(--color-text-ui);
+  /*background-color: rgb(255,255,255);*/
+  background-color: black;      /*var(--color-ui-background);*/
+  color: var(--color-text-1);
   font-family: 'Roboto', sans-serif;
   font-size: var(--font-size);
-  /*margin: 0px auto 0px 200px;*/
-  /*padding: 40px 160px 0px 0px;*/
   overflow-y: show;           /* Hide vertical scrollbar */
   overflow-x: hidden;         /* Hide horizontal scrollbar */
-  transition: background-color .5s;
-  /*width: 100%;*/
+  /*transition: background-color .5s;*/
+  cursor: default;
+  margin: 0px 0px 0px 0px;
+  
+}
+/* =========== HEADER-Shrink =========== */
+#header {
+  background-color: var(--color-ui-background);
+  padding: 0px 0px;
+  color: var(--color-text-1);
+  text-align: center;
+  font-size: 26px; 
+  font-weight: bold;
+  position: fixed;
+  top: 0px;
+  left: var(--header-top);
+  width: 100%;
+  transition: 0.3s;
   cursor: default;
 }
-
 #content {
-  padding: 0px 0px;
-  margin: 40px 0px 0px 36px;
-  width: 50%;
+  width: 100vw;
+  max-width: 99.6%;
+  padding: 0px 0px 0px 0px;
+  margin-left: auto; 
+  margin-right: auto;
+  margin-top: 60px;
+  overflow-x: auto;
+  background-color: var(--color-ui-background);
+  /*border: 1px solid red;*/
 }
+
 p {
-  color: var(--color-text);
+  color: var(--color-text-1);
+}
+table {
+  border: 1px solid var(--color-ui-border);
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-left: auto; 
+  margin-right: auto;
+}
+th {
+  text-align: center;
+  background-color: var(--color-text-hoover);
+}
+td {
+  text-align: left;
+}
+td#OnOff {
+  color: rgb(255,0,0, 0.7);
+}
+tr:nth-child(even) {
+  background-color: rgba(0, 128, 0, 0.05);
 }
 img {
   display: block;
@@ -122,68 +136,51 @@ a:active {
   text-decoration: underline;
   cursor: url(/images/select-right.cur),auto;
 }
-
-
-/* =========== HEADER-Shrink =========== */
-#header {
-  background-color: var(--color-ui-background);
-  padding: 4px 0px;
-  color: var(--color-text);
-  text-align: center;
-  font-size: 28px; 
-  font-weight: bold;
-  position: fixed;
-  top: 0px;
-  width: 100%;
-  transition: 0.3s;
-  cursor: default;
-}
-
 /* =========== SCROLL-Smooth =========== */
 #scroll-smooth-to-1 {
-  background-color: var(--color-system-background);
+  background-color: var(--color-ui-background);
 }
 #scroll-smooth-to-2 {
   height: 600px;
-  background-color: var(--color-system-background);
+  background-color: var(--color-ui-background);
   width: 100%;
 }
 
 /* =========== SCROLLBAR-Customize =========== */
 /* SCROLLBAR - width */
 ::-webkit-scrollbar {
-  width: var(--el-scroll-width);
+  width: var(--scroll-width);
 }
 /* SCROLLBAR - button */
 /*::-webkit-scrollbar-button {
   background: #FF00FF;
   height: 22px;
-}
-*/
+}*/
+
 /* SCROLLBAR - track */
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
+  -webkit-box-shadow: inset 0 0 6px var(--color-shadow-1);
+  -webkit-border-radius: var(--border-radius-small);
+  border-radius: var(--border-radius-small);
 }
 /* SCROLLBAR - track - piece */
 ::-webkit-scrollbar-track-piece {
-  background: var(--color-slider-track);
+  background: var(--color-ui-3);
 }
 /* SCROLLBAR - handle */
 ::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: var(--color-slider-handle); 
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    -webkit-border-radius: var(--border-radius-midle);
+    border-radius: var(--border-radius-midle);
+    background: var(--color-ui-1);
+    -webkit-box-shadow: inset 0 0 6px var(--color-shadow-1);
 }
 /* SCROLLBAR - handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-slider-handle-hover); 
+  background: var(--color-ui-2); 
 }
 /* SCROLLBAR - thumb */
 ::-webkit-scrollbar-thumb:window-inactive {
-	background: rgba(255,0,0,0.4); 
+	background: var(--color-ui-4); 
 }
 /* SCROLLBAR - corner */
 /*
@@ -195,43 +192,75 @@ a:active {
 #scroll-ToTop-button {
   display: none;
   position: fixed;
-  bottom: 20px;
-  right: 30px;
+  bottom: 0px;
+  right: 6px;
   z-index: 99;
-  font-size: 2em;
+  font-size: 36px;
   border: 1px;
-  border-radius: 200px;
+  border-radius: 360px;
   outline: none;
   background-color: var(--color-ui-background);
-  color: var(--color-text-ui-hover);
+  color: var(--color-text-hoover);
   cursor: url(/images/select-right.cur),auto;
-  padding: 0px 8px;
+  padding: 0px 18px;
 }
 
 #scroll-ToTop-button:hover {
-  background-color: #555;
+  background-color: var(--color-text-hoover);
+  color: var(--color-text-1);
 }
 
 /* =========== SCROLLBAR-Indicator =========== */
 #scroll-indicator-container {
   position: fixed;
-  top: 1px;
+  top: 0px;
   width: 100%;
-  height: var(--el-scroll-indicator-height);
-  background: var(--color-slider-track);
+  height: var(--scroll-indicator-height);
+  background: var(--color-ui-3);
   display: hidden;
 }
 #scroll-indicator-bar {
-  height: var(--el-scroll-indicator-height);
-  background: var(--color-text-ui-hover);
+  height: var(--scroll-indicator-height);
+  background: var(--color-text-hoover);
   width: 0%;
+}
+
+/* =========== ACCORDION =========== */
+.accordion {
+  display: block;
+  background-color: var(--color-text-3);
+  color: var(--color-ui-text);
+  cursor: pointer;
+  width: 280px;
+  border: none;
+  text-align: left;
+  margin: auto;
+  padding: 10px;
+  outline: none;
+  font-size: var(--font-size);
+  transition: 0.4s;
+}
+.active,
+.accordion:hover {
+  background-color: var(--color-text-hoover);
+}
+.panel {
+  display: block;
+  padding: 0 18px;
+  background-color: #1f1f1f;
+  color: var(--color-ui-text);
+  width:244px;
+  max-height: 0;
+  margin: auto;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
 
 /* =========== SLIDESHOW =========== */
 /* Slideshow container */
 .slideshow-container {
   position: relative;
-  background: var(--color-system-background);
+  background: var(--color-ui-background);
 }
 
 /* Slideshow-slide */
@@ -266,7 +295,7 @@ a:active {
 /* On hover, add a black background color with a little bit see-through */
 .slideshow-prev-button:hover, .slideshow-next-button:hover {
   background-color: rgba(0,0,0,0.2);
-  color: var(--color-text-ui-hover);
+  color: var(--color-text-hoover);
   text-decoration: none;
 }
 
@@ -274,7 +303,7 @@ a:active {
 .slideshow-dot-container {
     text-align: center;
     padding: 20px;
-    background: var(--color-system-background);
+    background: var(--color-ui-background);
 }
 
 /* The dots/bullets/indicators */
@@ -291,13 +320,13 @@ a:active {
 
 /* Add a background color to the active dot/circle */
 .slideshow-dot-active, .slideshow-dot:hover {
-  background-color: var(--color-text-ui-hover);
+  background-color: var(--color-text-hoover);
 }
 
 /* =========== PAGINATION =========== */
 .pagination a {
   background-color: var(--color-ui-background);
-  color: var(--color-text);
+  color: var(--color-text-1);
   cursor: url(/images/select-right.cur),auto;
   padding: 8px 16px;
   text-decoration: none;
@@ -306,8 +335,8 @@ a:active {
 }
 
 .pagination a.active {
-  background-color: var(--color-text-ui-hover);
-  color: var(--color-text);
+  background-color: var(--color-text-hoover);
+  color: var(--color-text-1);
 }
 
 .pagination a:hover:not(.active) {
@@ -316,12 +345,12 @@ a:active {
 
 /* =========== BULLIT-Color =========== */
 .bullit-color{
-  background-color: var(--color-system-background);
+  background-color: var(--color-ui-background);
   list-style: none;
 }
 .bullit-color li::before {
   content: "\2022";
-  color: var(--color-text-ui-hover);
+  color: var(--color-text-hoover);
   font-weight: bold;
   display: inline-block; 
   width: 1em;
@@ -345,13 +374,13 @@ a:active {
 
 /* =========== TEXT-Selection-Colors =========== */
 ::-moz-selection { /* Code for Firefox */
-  color: var(--color-system-background);
-  background: var(--color-text);
+  color: var(--color-ui-background);
+  background: var(--color-text-1);
 }
 
 ::selection {
-  color: var(--color-system-background);
-  background: var(--color-text);
+  color: var(--color-ui-background);
+  background: var(--color-text-1);
 }
 
 /* =========== TEXT-Selection-Prevent =========== */
@@ -385,16 +414,16 @@ a:active {
   visibility: hidden;
   min-width: 250px;
   margin-left: -125px;
-  background-color: var(--color-text-ui-hover);
+  background-color: var(--color-text-hoover);
   color: #FFF;
   text-align: center;
-  border-radius: 10px;
+  border-radius: var(--border-radius-big);
   padding: 16px;
   position: fixed;
   z-index: 15;
   left: 50%;
-  bottom: 30px;
-  font-size: 17px;
+  bottom: 436px0px;
+  font-size: var(--font-size);
 }
 
 #snackbar.show {
@@ -405,21 +434,21 @@ a:active {
 
 @-webkit-keyframes fadein {
   from {bottom: 0; opacity: 0;} 
-  to {bottom: 30px; opacity: 1;}
+  to {bottom: 36px; opacity: 1;}
 }
 
 @keyframes fadein {
   from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  to {bottom: 36px; opacity: 1;}
 }
 
 @-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;} 
+  from {bottom: 36px; opacity: 1;} 
   to {bottom: 0; opacity: 0;}
 }
 
 @keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
+  from {bottom: 36px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
 }
 /* --------MOBILE DEVICES-------- */
@@ -452,28 +481,20 @@ a:active {
   /* =========== SCROLL-Smooth =========== */
   /* =========== SCROLLBAR-Customize =========== */
   body{
-    font-size: 10px;
+    font-size: var(--font-size-360);
   }
   #content{
-   width: 90vw;
+   width: 78vw;
    /*width: 80px;*/
-   max-width: 82%;
-   margin: 0px auto 0px auto;
+   max-width: 100%;
+   margin: 40px auto 0px 36px;
    overflow-x: auto;
    padding: 0px 0px 0px 16px;
   }
-  #article {
-    /*width: 10vw;*/
-    width: 80px;
-    /*max-width: 50%;*/
-    margin: 0px auto 0px auto;
-    /*overflow-x: auto;*/
-    /*padding: 16px 36px 32px 36px;*/
-  }
   /* =========== SCROLL-ToTop-Button =========== */
   #scroll-ToTop-button {
-    bottom: 4px;
-    right: 4px;
+    bottom: 8px;
+    right: 8px;
   }
   /* =========== SCROLLBAR-Indicator =========== */
   /* =========== SLIDESHOW =========== */
