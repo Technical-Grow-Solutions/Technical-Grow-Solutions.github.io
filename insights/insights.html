@@ -29,8 +29,6 @@
         <!-- =========== SCROLL-ToTop-Button =========== -->
         <button onclick="fScrollToTop()" id="scroll-ToTop-button" title="Go to top"><b>&#916;</b></button>
         
-        <div id="snackbar">Some text some message..</div>
-
         <!--Starts DIFFERENT CONTAINER-->
         <div id="content">
             
@@ -92,14 +90,6 @@
             function fScrollToTop() {
                 document.body.scrollTop = 0;
                 document.documentElement.scrollTop = 0;
-            }
-        </script>
-        <script>
-            /* =========== SNACKBAR =========== */
-            function fSnackbar() {
-                var x = document.getElementById("snackbar");
-                x.className = "show";
-                setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
             }
         </script>
         <!--Ends Script-->
