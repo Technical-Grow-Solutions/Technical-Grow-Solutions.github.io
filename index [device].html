@@ -361,30 +361,30 @@
           case 0:
             // div1.classList.add("left"); /* + class: left (for left-handed)*/
             a.setAttribute("onclick", 'fshowInUI("/data/profile-min.json", "Profile")');
-            img.setAttribute("src", "../images/user.png");
+            img.setAttribute("src", "/images/user.png");
             h2.innerHTML = "Profile";
             break;
           case 1:
             a.setAttribute("onclick", 'fshowInUI("login [device]-min.html", "login")');
             /*a.setAttribute("onclick", 'myWindow()')*/
             /*a.setAttribute("onclick", 'fshowInUI("http://192.168.1.20:5502/public/data/forum.html", "Forum")');*/
-            img.setAttribute("src", "../images/forum.png");
+            img.setAttribute("src", "/images/forum.png");
             h2.innerHTML = "Forum";
             break;
           case 2:
             a.setAttribute("onclick", 'fshowInUI("/devices/clone-booster/data/device-min.json", "Device")');
-            img.setAttribute("src", "../images/device.png");
+            img.setAttribute("src", "/images/device.png");
             h2.innerHTML = "Device";
             break;
           case 3:
 
             a.setAttribute("onclick", 'fshowInUI("/training/data/training-min.json", "Training")');
-            img.setAttribute("src", "../images/training.png");
+            img.setAttribute("src", "/images/training.png");
             h2.innerHTML = "Training";
             break;
           case 4:
             a.setAttribute("onclick", 'fshowInUI("/catalog/data/catalog-min.json", "Catalog")');
-            img.setAttribute("src", "../images/catalog.png");
+            img.setAttribute("src", "/images/catalog.png");
             h2.innerHTML = "Catalog";
             break;
           case 5:
@@ -885,18 +885,20 @@
       fAweSomeMode();
     }
     function fLeftHand() {
+      let body = document.querySelector("body").classList;
       let profilebut = document.querySelector(".menu").firstChild.classList;
       let clock = document.querySelector(".clock").classList;
       if (IsLeftHand) {
+        body.add("left");
         profilebut.add("left");
         clock.add("left");
       }
       else {
+        body.remove("left");
         profilebut.remove("left");
         clock.remove("left");
       }
     }
-
     function ftoggleLeftHand() {
       IsLeftHand = IsLeftHand ^ true;
       fLeftHand();
