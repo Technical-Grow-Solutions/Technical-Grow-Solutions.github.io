@@ -1,0 +1,919 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 strict //EN">
+<html>
+
+<head>
+  <meta name="GENERATOR" content="TGS">
+  <meta name="author" content="M.F.Saathof">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link href="styles/main.css" rel="stylesheet" type="text/css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <title>Technical Grow Solutions</title>
+  <link href="images/comp_icon [org].ico" rel="icon" type="image/x-icon">
+  <!--<script src="./styles/main.js"></script>-->
+  <script type="text/javascript">
+    let websock;
+    let jsonDoc;
+    let jsonObject;
+    let IsInitiated;
+    let IsFullScreen = false;
+    let InAwesome = false;
+    let IsLeftHand = false;
+
+    /*let uicontent = document.querySelector('.ui-content');*/
+    /*let cssObj = window.getComputedStyle(uititle, null);*/
+    /*let cssStyle = getComputedStyle(document.documentElement);*/
+    /*  enum_Show
+     0-Background
+     1-Header
+     2-Chapter
+     3-Footer
+     4-but: Profile
+     5-but: Clock
+     6-but: ?
+     7-but: Device
+     8-but: Training
+     9-but: Catalog
+    10-but: ScrollToTop
+    11-ScrollIndicator
+    12-Loader
+    13-Snackbar
+    14-UI
+    15-
+
+    */
+    let url_Company;
+    let url_Github;
+
+
+    url_Company = "http://192.168.1.20:5502";
+    url_Github = "https://raw.githubusercontent.com/Technical-Grow-Solutions";
+
+    /*Animations*/
+
+
+
+    /* Events*/
+    window.addEventListener('load', Init);
+    window.addEventListener('pageshow', fgla);
+
+    /*
+        document.addEventListener("visibilitychange", () => {
+          if (document.visibilityState === "visible") {
+    
+          } else {
+    
+          }
+        });*/
+    /* BullShit
+    remake toggle slider: https://www.youtube.com/watch?v=CDldkBcrGkA
+    
+    */
+    function myWindow() {
+      console.log("View innerheight: " + window.innerHeight);
+      console.log("View outerheight: " + window.outerHeight);
+    }
+
+    function fgla() {
+      console.log("YEAH");
+      IsFullScreen = fisFullScreen();
+      /*IsFullScreen = true;*/
+      fFullScreen();
+
+      InAwesome = true
+      fAweSomeMode();
+      IsLeftHand = true;
+      fLeftHand();
+    }
+    /* Start */
+    function Init(event) {
+      fcreatePage();
+      /*temp*/
+      ws_rx_Header();
+
+      document.querySelector('.header').classList.add("show");
+      document.querySelector('.chapter').classList.add("show");
+
+      document.querySelector('.scrll-indicator').classList.add("show");
+
+
+      document.querySelector('.footer').classList.add("show");
+
+      /*document.querySelector('.chapter').classList.add("show");*/
+      fshowMenu(true, true, true, true, true, false);
+      clock_Init()
+
+      setInterval(fisBrowserOnline, 1000);
+      myWindow();
+      /*div2.setAttribute("onclick", 'fOpenFullScreen()');*/
+      /*fexpandLogo();
+      let timeout;
+      setTimeout(fcollapseLogo, 7000);*/
+
+      /*ws_Init();*/
+    }
+    /*Page*/
+    function fcreatePage() {
+      let body = document.body;
+
+      /* AWESOME */
+      let div1 = document.createElement("div");
+      div1.setAttribute("class", "awesome");
+      body.append(div1);
+
+      /* CHAPTER */
+      div1 = document.createElement("div");
+      div1.setAttribute("class", "chapter");
+      /*div2.innerHTML = "Welcome";*/
+      body.appendChild(div1);
+
+      /* CLOCK */
+      let div2;
+      let div3;
+      let div4;
+      let div5;
+      div1 = document.createElement("div");
+      div1.setAttribute("class", "clock");
+
+      /*Time*/
+      div5 = document.createElement("div");
+      div5.setAttribute("class", "time");
+      div1.appendChild(div5);
+
+      /*hours*/
+      div2 = document.createElement("div");
+      div2.setAttribute("class", "hours");
+      div5.appendChild(div2);
+      /*first digit*/
+      div3 = document.createElement("div");
+      div3.setAttribute("class", "first");
+      div2.appendChild(div3);
+      div4 = document.createElement("div");
+      div4.setAttribute("class", "number");
+      div4.innerText = "0";
+      div3.appendChild(div4);
+      /*second digit*/
+      div3 = document.createElement("div");
+      div3.setAttribute("class", "second");
+      div2.appendChild(div3);
+      div4 = document.createElement("div");
+      div4.setAttribute("class", "number");
+      div4.innerText = "0";
+      div3.appendChild(div4);
+
+      /*tick*/
+      div2 = document.createElement("div");
+      div2.setAttribute("class", "tick");
+      div2.innerText = ":";
+      div5.appendChild(div2);
+
+      /*minutes*/
+      div2 = document.createElement("div");
+      div2.setAttribute("class", "minutes");
+      div5.appendChild(div2);
+      /*first digit*/
+      div3 = document.createElement("div");
+      div3.setAttribute("class", "first");
+      div2.appendChild(div3);
+      div4 = document.createElement("div");
+      div4.setAttribute("class", "number");
+      div4.innerText = "0";
+      div3.appendChild(div4);
+      /*second digit*/
+      div3 = document.createElement("div");
+      div3.setAttribute("class", "second");
+      div2.appendChild(div3);
+      div4 = document.createElement("div");
+      div4.setAttribute("class", "number");
+      div4.innerText = "0";
+      div3.appendChild(div4);
+
+      /*tick*/
+      div2 = document.createElement("div");
+      div2.setAttribute("class", "tick");
+      div2.innerText = ":";
+      div5.appendChild(div2);
+
+      /*secondes*/
+      div2 = document.createElement("div");
+      div2.setAttribute("class", "seconds");
+      div5.appendChild(div2);
+      /*first digit*/
+      div3 = document.createElement("div");
+      div3.setAttribute("class", "first");
+      div2.appendChild(div3);
+      div4 = document.createElement("div");
+      div4.setAttribute("class", "number");
+      div4.innerText = "0";
+      div3.appendChild(div4);
+      /*second digit*/
+      div3 = document.createElement("div");
+      div3.setAttribute("class", "second");
+      div2.appendChild(div3);
+      div4 = document.createElement("div");
+      div4.setAttribute("class", "number");
+      div4.innerText = "0";
+      div3.appendChild(div4);
+
+      /*Date*/
+      div5 = document.createElement("div");
+      div5.setAttribute("class", "date");
+      div1.appendChild(div5);
+
+
+      /*dayname*/
+      div2 = document.createElement("div");
+      div2.setAttribute("class", "dayname");
+      div5.appendChild(div2);
+      /*first digit*/
+      div3 = document.createElement("div");
+      div3.setAttribute("class", "first");
+      div2.appendChild(div3);
+      div4 = document.createElement("div");
+      div4.setAttribute("class", "number");
+      div4.innerText = "mon";
+      div3.appendChild(div4);
+
+
+      /*divider*/
+      div2 = document.createElement("div");
+      div2.setAttribute("class", "divider");
+      div2.innerText = "-";
+      div5.appendChild(div2);
+
+      /*day*/
+      div2 = document.createElement("div");
+      div2.setAttribute("class", "day");
+      div5.appendChild(div2);
+      /*first digit*/
+      div3 = document.createElement("div");
+      div3.setAttribute("class", "first");
+      div2.appendChild(div3);
+      div4 = document.createElement("div");
+      div4.setAttribute("class", "number");
+      div4.innerText = "0";
+      div3.appendChild(div4);
+      /*second digit*/
+      div3 = document.createElement("div");
+      div3.setAttribute("class", "second");
+      div2.appendChild(div3);
+      div4 = document.createElement("div");
+      div4.setAttribute("class", "number");
+      div4.innerText = "0";
+      div3.appendChild(div4);
+      /*divider*/
+      div2 = document.createElement("div");
+      div2.setAttribute("class", "divider");
+      div2.innerText = "-";
+      div5.appendChild(div2);
+      /*month*/
+      div2 = document.createElement("div");
+      div2.setAttribute("class", "month");
+      div5.appendChild(div2);
+      /*first digit*/
+      div3 = document.createElement("div");
+      div3.setAttribute("class", "first");
+      div2.appendChild(div3);
+      div4 = document.createElement("div");
+      div4.setAttribute("class", "number");
+      div4.innerText = "0";
+      div3.appendChild(div4);
+      /*second digit*/
+      div3 = document.createElement("div");
+      div3.setAttribute("class", "second");
+      div2.appendChild(div3);
+      div4 = document.createElement("div");
+      div4.setAttribute("class", "number");
+      div4.innerText = "0";
+      div3.appendChild(div4);
+      body.appendChild(div1);
+
+      /* FOOTER */
+      const d = new Date();
+      div1 = document.createElement("div");
+      div1.setAttribute("class", "footer");
+      div2 = document.createElement("div");
+      div2.setAttribute("class", "footer-credit");
+      /*div2.setAttribute("translate", "no");*/
+      div2.innerHTML = "Copyright&ensp;&copy2016-" + d.getFullYear();
+      div1.appendChild(div2);
+      let span = document.createElement("span");
+      span.setAttribute("id", "footer-year");
+      span.innerHTML = "&ensp;";
+      div2.appendChild(span);
+      span = document.createElement("span");
+      span.setAttribute("id", "footer-company");
+      span.innerHTML = "-&ensp;All Rights Reserved&emsp;||&emsp;UI-UX design by:&ensp; M.F. Saathof";
+      /*span.innerHTML = "&ensp;-&ensp;All Rights Reserved&emsp;||&emsp;UI-UX design by:&ensp;";*/
+      div2.appendChild(span);
+      span = document.createElement("span");
+      span.setAttribute("id", "footer-author-alias");
+      div2.appendChild(span);
+      body.appendChild(div1);
+
+      /* HEADER */
+      div1 = document.createElement("div");
+      div1.setAttribute("class", "header");
+      div1.setAttribute("translate", "no");
+      let ul = document.createElement("ul");
+      ul.setAttribute("class", "logo hidden");
+      ul.setAttribute("id", "logo");
+      ul.addEventListener("mouseover", fexpandLogo);
+      ul.addEventListener("mouseout", fcollapseLogo);
+      div1.appendChild(ul);
+      let a = document.createElement("a");
+      a.setAttribute("id", "logo-list");
+      a.setAttribute("href", "");
+      ul.appendChild(a);
+      body.appendChild(div1);
+
+      /* LOADER */
+      div1 = document.createElement("div");
+      div1.setAttribute("class", "loader");
+      div2 = document.createElement("div");
+      div2.setAttribute("class", "ring");
+      div1.appendChild(div2);
+      div2 = document.createElement("div");
+      div2.setAttribute("class", "ring");
+      div1.appendChild(div2);
+      div2 = document.createElement("div");
+      div2.setAttribute("class", "ring");
+      div1.appendChild(div2);
+      span = document.createElement("span");
+      span.setAttribute("class", "loading");
+      span.innerHTML = "Loading...";
+      div1.appendChild(span);
+      body.appendChild(div1);
+
+      /* MENU */
+      div3 = document.createElement("div");
+      div3.setAttribute("class", "menu show");
+      /* ROUND BUTTON */
+      for (let i = 0; i < 6; i++) {
+        div1 = document.createElement("div");
+        div1.setAttribute("class", "rbut");
+        a = document.createElement("a");
+        div2 = document.createElement("div");
+        div2.setAttribute("class", "rbut-content");
+        img = document.createElement("img");
+        let h2 = document.createElement("h2");
+        switch (i) {
+          case 0:
+            // div1.classList.add("left"); /* + class: left (for left-handed)*/
+            a.setAttribute("onclick", 'fshowInUI("/data/profile-min.json", "Profile")');
+            img.setAttribute("src", "../images/user.png");
+            h2.innerHTML = "Profile";
+            break;
+          case 1:
+            a.setAttribute("onclick", 'fshowInUI("login [device]-min.html", "login")');
+            /*a.setAttribute("onclick", 'myWindow()')*/
+            /*a.setAttribute("onclick", 'fshowInUI("http://192.168.1.20:5502/public/data/forum.html", "Forum")');*/
+            img.setAttribute("src", "../images/forum.png");
+            h2.innerHTML = "Forum";
+            break;
+          case 2:
+            a.setAttribute("onclick", 'fshowInUI("/devices/clone-booster/data/device-min.json", "Device")');
+            img.setAttribute("src", "../images/device.png");
+            h2.innerHTML = "Device";
+            break;
+          case 3:
+
+            a.setAttribute("onclick", 'fshowInUI("https://raw.githubusercontent.com/Technical-Grow-Solutions/training/main/data/training-min.json", "Training")');
+            img.setAttribute("src", "../images/training.png");
+            h2.innerHTML = "Training";
+            break;
+          case 4:
+            a.setAttribute("onclick", 'fshowInUI("https://raw.githubusercontent.com/Technical-Grow-Solutions/catalog/main/data/catalog-min.json", "Catalog")');
+            img.setAttribute("src", "../images/catalog.png");
+            h2.innerHTML = "Catalog";
+            break;
+          case 5:
+            a.setAttribute("onclick", 'ftoggleFullScreen()');
+            /*a.setAttribute("onclick", 'fshowInUI("http://192.168.1.20:5502/public/data/forum.html", "ToTop")');*/
+            img.setAttribute("src", "../images/forum.png");
+            h2.innerHTML = "Back";
+            break;
+        }
+        div2.appendChild(img);
+        div2.appendChild(h2);
+        a.appendChild(div2);
+        div1.appendChild(a);
+        div3.appendChild(div1);
+      }
+      body.appendChild(div3);
+
+      /* SCROLL INDICATOR */
+      div1 = document.createElement("div");
+      div1.setAttribute("class", "scrll-indicator");
+      div2 = document.createElement("div");
+      div2.setAttribute("class", "scrll-indicator-bar");
+      div1.appendChild(div2);
+      body.appendChild(div1);
+
+      /* SCROLL-TO-TOP-BUTTON */
+      div1 = document.createElement("div");
+      div1.setAttribute("class", "scrolltotop");
+      span = document.createElement("span");
+      span.setAttribute("class", "scrolltotop-progress");
+      div1.appendChild(span);
+      body.appendChild(div1);
+
+      /* SNACKBAR */
+      div1 = document.createElement("div");
+      div1.setAttribute("class", "snackbar");
+      div1.innerHTML = "<b>Help!!</b><br>Ik ben verslaafd aan<br> ........ programmeren.<br><br>Eens kijken hoever ik kan gaan.";
+      body.appendChild(div1);
+
+      /* UI */
+      div1 = document.createElement("div");
+      div1.setAttribute("class", "ui");
+      div2 = document.createElement("div");
+      div2.setAttribute("class", "ui-content");
+      div1.appendChild(div2);
+      body.appendChild(div1);
+    }
+    /*Header logo*/
+    function fexpandLogo() {
+      document.getElementById("logo").classList.remove("hidden");
+      /*document.getElementById("chaptervalue").innerHTML="BLALBA";*/
+    }
+    function fcollapseLogo() {
+      document.getElementById("logo").classList.add("hidden");
+    }
+    /*Chapter*/
+    function fchangeChapter(title) {
+      /*Get the element*/
+      let Chapter = document.querySelector(".chapter");
+      let Span;
+      /*if (InAwesome) {*/
+      /*in reverse*/
+      /*Chapter.classList.add("show");*/
+      /*}*/
+
+      /*Clear all the previous childeren and props in html and in the css*/
+      /*Chapter.classList.remove("show");*/
+      if (!Chapter.childElementCount == 0) {
+        fAnimateText(Chapter, true);
+
+        /*setTimeout(() => {*/
+        ereaseAnimatie(Chapter);
+        createAnimatie(Chapter, title);
+        /*}, 1000);*/
+
+
+      }
+      else {
+        createAnimatie(Chapter, title);
+      }
+    }
+    function ereaseAnimatie(divElement) {
+      console.log("EREASE");
+      while (divElement.firstChild) {
+        divElement.removeChild(divElement.firstChild);
+      }
+    }
+    function createAnimatie(divElement, title) {
+      for (let i = 0; i < title.length; i++) {
+        if (title.slice(i, i + 1) == " ") {
+          Span.insertAdjacentText("afterend", "&nbsp;")
+        }
+        else {
+          Span = document.createElement("span");
+          Span.innerHTML = title.toUpperCase().slice(i, i + 1);
+          divElement.appendChild(Span);
+        }
+      }
+      fAnimateText(divElement);
+    }
+
+    /*<span style="transform: translate(-150px, -50px) rotate(-180deg) scale(3); animation: 0.5s ease 0.05s 1 reverse none running revolveScale;">T</span>*/
+    /*<span style="transform: translate(-150px, -50px) rotate(-180deg) scale(3); animation: 0.5s ease 0.05s 1 normal forwards running revolveScale;">C</span>*/
+
+    /*spanElement.style.animation = 'revolveScale 0.5s ease forwards';*/
+    /*spanElement.style.animation = 'revolveScale 0.5s ease';*/
+    /*spanElement.style.animationDirection = "reverse";*/
+    function fAnimateText(Element, reverse = false) {
+      console.log("AnimateText");
+      let spanElements = Element.querySelectorAll("span");
+      let tim = 0;
+      spanElements.forEach(spanElement => {
+        if (InAwesome) {
+          tim = tim + 0.05;
+          spanElement.style.transform = "translate(-150px, -50px) rotate(-180deg) scale(3)";
+          /*<span style="animation: 0.4s ease 0.35s 1 normal forwards running revolveScale;">G</span>*/
+          if (reverse) {
+            spanElement.style.animation = "revolveScale .3s reverse";
+            /*spanElement.style.animationDirection = "reverse";*/
+          }
+          else {
+            spanElement.style.animation = "revolveScale .3s forwards";
+
+          }
+          spanElement.style.animationDelay = tim + "s";
+        }
+        else {
+          spanElement.style.opacity = 1;
+        }
+      })
+    }
+
+    /*Menu*/
+    function fshowMenu(a = false, b = false, c = false, d = false, e = false, f = false) {
+      let menu = document.querySelector('.menu');
+      if (a == true) { menu.childNodes[0].classList.add("show"); } else { menu.childNodes[0].classList.remove("show"); }
+      if (b == true) { menu.childNodes[1].classList.add("show"); } else { menu.childNodes[1].classList.remove("show"); }
+      if (c == true) { menu.childNodes[2].classList.add("show"); } else { menu.childNodes[2].classList.remove("show"); }
+      if (d == true) { menu.childNodes[3].classList.add("show"); } else { menu.childNodes[3].classList.remove("show"); }
+      if (e == true) { menu.childNodes[4].classList.add("show"); } else { menu.childNodes[4].classList.remove("show"); }
+      if (f == true) { menu.childNodes[5].classList.add("show"); } else { menu.childNodes[5].classList.remove("show"); }
+    }
+    /*UI*/
+    function fshowInUI(url, chapter) {
+      const ui = document.querySelector('.ui');
+      const ui_content = document.querySelector('.ui-content');
+      if (ui.classList.contains("show")) {
+        if (InAwesome) {
+          ui.classList.remove("show");
+          setTimeout(() => {
+            while (ui_content.firstChild) {
+              ui_content.removeChild(ui_content.firstChild);
+            }
+          }, 300);
+        }
+        else {
+          while (ui_content.firstChild) {
+            ui_content.removeChild(ui_content.firstChild);
+          }
+        }
+      }
+      if (InAwesome) {
+        setTimeout(() => {
+          fchangeChapter(chapter);
+          fgetUIData(url);
+          ui.classList.add("show");
+        }, 300);
+      }
+      else {
+        ui.classList.add("show");
+        fchangeChapter(chapter);
+        fgetUIData(url);
+
+      }
+
+
+
+    }
+    /*UI-Fetch data*/
+    document.querySelector('.loader').classList.add("show");
+    async function fgetUIData(bla) {
+      const response = await fetch(bla);
+      document.querySelector('.loader').classList.remove("show");
+      if (bla.includes(".json")) {
+        const jsonDoc = await response.json();
+        fprocessUIJson(jsonDoc);
+      }
+      else if (bla.includes(".html")) {
+        const htmlstr = await response.text();
+        let ui_content = document.querySelector('.ui-content');
+        ui_content.innerHTML = htmlstr;
+        document.querySelector('.menu').classList.remove("show");
+        fshowMenu(false, false, false, false, false, false);
+      }
+      /*document.querySelector('.scrll-indicator').classList.remove('show');*/
+
+    }
+    /*UI-Acc*/
+    function fprocessUIJson(jsonDoc) {
+      /*Filling the content*/
+      let item_body_content;
+      let subitem_body_content;
+      let subsubitem_body_content;
+      let uicontent = document.querySelector('.ui-content');
+
+      let jsonType = jsonDoc["type"];
+      switch (jsonType) {
+        case "accordion":
+          let acc = document.createElement("div");
+          acc.setAttribute("class", jsonType);
+          acc.setAttribute("id", jsonDoc["id"]);
+          uicontent.appendChild(acc);
+
+
+          if (jsonDoc.hasOwnProperty('translate')) {
+            if (!jsonDoc["translate"]) {
+              acc.setAttribute("translate", "no");
+            }
+          }
+          /* Items */
+          jsonDoc["items"].forEach(jsonItem => {
+            /* if exampleObj.hasOwnProperty('name') */
+            item_body_content = fcreateACCItem(acc, jsonItem);
+            if (jsonItem.hasOwnProperty("items")) {
+              /* SubItems  */
+              jsonItem["items"].forEach(jsonSubItem => {
+                subitem_body_content = fcreateACCItem(item_body_content, jsonSubItem);
+                if (jsonSubItem.hasOwnProperty("items")) {
+                  /* SubSubItem  */
+                  jsonSubItem["items"].forEach(jsonSubSubItem => {
+                    subsubitem_body_content = fcreateACCItem(subitem_body_content, jsonSubSubItem);
+                  });
+                }
+                else {
+                  /*console.log("jsonSubItem: ", jsonSubItem); */
+                };
+              });
+            }
+            else {
+              /* fetch data???
+              console.log("Item has only one SubItem");
+              console.log("jsonSubItem: ", jsonSubItem); */
+            };
+          });
+          acc_Init();
+          break;
+      }
+    }
+    function fcreateACCItem(addToBodyContent, json_item) {
+      let acc_item;
+      let acc_item_header;
+      let acc_item_body;
+      let acc_item_body_content;
+      let acc_name;
+      acc_name = json_item["item"];
+
+
+      acc_item = document.createElement("div");
+      acc_item.setAttribute("class", "acc_item");
+      acc_item.setAttribute("id", acc_name);
+      addToBodyContent.appendChild(acc_item);
+
+      acc_item_header = document.createElement("div");
+      acc_item_header.setAttribute("class", "acc_item_header");
+
+      if (json_item.hasOwnProperty("translate")) {
+        if (json_item["translate"]) {
+          console.log("translate: ", (json_item["translate"]));
+          acc_item_header.setAttribute("translate", "yes");
+        }
+        else {
+          acc_item_header.setAttribute("translate", "no");
+        }
+      }
+
+      acc_item_header.innerText = acc_name.charAt(0).toUpperCase() + acc_name.slice(1);
+      acc_item.appendChild(acc_item_header);
+
+      acc_item_body = document.createElement("div");
+      acc_item_body.setAttribute("class", "acc_item_body");
+      acc_item_body_content = document.createElement("div");
+      acc_item_body_content.setAttribute("class", "acc_item_body_content");
+      acc_item_body.appendChild(acc_item_body_content);
+      acc_item.appendChild(acc_item_body);
+      return acc_item_body_content;
+    }
+    /*LogIn*/
+    function ftoggleShowPsw() {
+      var x = document.getElementById("PSWInput");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+    /*WebSocket functions*/
+    function ws_Init() {
+      if ("WebSocket" in window) {
+        /* let protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';     */
+        /* Let us open a web socket
+        console.log('Trying to open a WebSocket connection...'); */
+        websock = new WebSocket(
+          "ws://" + window.location.hostname + ":81/ws"
+        );
+        websock.onopen = ws_Open;
+        websock.onclose = ws_Close;
+        websock.onmessage = ws_Message;
+        websock.onerror = ws_Error;
+      } else {
+        /*The browser doesn't support WebSocket */
+        alert("WebSocket NOT supported by your Browser!");
+      }
+    }
+    function ws_Open(event) {
+      console.log("Connection opened");
+    }
+    function ws_Message(event) {
+      /*console.log(`Received a notification from ${event.origin}`);*/
+      console.log(event.data);
+
+      jsonDoc = JSON.parse(event.data);
+      let jsonID = jsonDoc["JsonID"];
+      if (jsonID == "header") { ws_rx_Header(); }
+      if (jsonID == "chapter") { ws_rx_Chapter(); }
+      if (jsonID == "footer") { ws_rx_Footer(); }
+      if (jsonID == "snack") { ws_rx_Snackbar(); }
+    }
+    function ws_Close(event) {
+      if (event.wasClean) {
+        /*alert(`[close] Connection closed cleanly, code=${evt.code} reason=${evt.reason}`);*/
+        console.log("Connection closed");
+      } else {
+        /* e.g. server process killed or network down
+                  event.code is usually 1006 in this case
+                  alert('[close] Connection died');*/
+      }
+      websock.close();
+    }
+    function ws_Error(error) {
+      /*alert(`[error] ${error.message}`);*/
+    }
+    /*WebSocket receiving Json data from server*/
+    function ws_rx_Header() {
+      console.log("ws_rx_Header:");
+      /*header Always first, it's init the page */
+      /*document.getElementById("header-value").innerHTML = jsonDoc["open"];*/
+
+      let a = document.getElementById("logo-list");
+      /* first remove all. */
+      while (a.firstChild) {
+        a.firstChild.remove();
+      }
+      let company = "Technical Grow Xperience";
+      /*let company = "Advanced Grow Xperience";*/
+      /*let company = "Technical Grow Solutions";*/
+      /* let company = jsonDoc["company-name"];*/
+
+      /* First letter, no class*/
+      let li = document.createElement("li");
+      li.innerHTML = company[0];
+      a.appendChild(li);
+
+      if (!IsInitiated) {
+        let letter = "ghost";
+        for (let i = 1; i < company.length; i++) {
+          if (company[i] == " ") {
+            letter = "spaced";
+            i++;
+          }
+          else {
+            letter = "ghost";
+          }
+
+          li = document.createElement("li");
+          li.innerHTML = company[i];
+          a.appendChild(li);
+          li.setAttribute("class", letter)
+        }
+        IsInitiated = true;
+      }
+    }
+    function ws_rx_Chapter() {
+      console.log("ws_rx_Chapter:");
+      document.getElementById("chapter-value").innerHTML = jsonDoc["value"];
+    }
+    function ws_rx_Footer() {
+      console.log("ws_rx_Footer:");
+      const d = new Date();
+      document.getElementById("footer-year").innerHTML = d.getFullYear();
+      /* UI-UX design by */
+      document.getElementById("footer-company").innerHTML = jsonDoc["company-name"];
+      document.getElementById("footer-author-alias").innerHTML = jsonDoc["author-alias"];
+    }
+    function ws_rx_Snackbar() {
+      console.log("ws_rx_Snackbar:");
+      element = document.getElementById("snackbar");
+      element.innerText = jsonDoc["message"];
+      let e_Color = jsonDoc["color"];
+
+      switch (e_Color) {
+        case 1:
+          element.style.backgroundColor = getComputedStyle(element).getPropertyValue("--color-ui-background");
+          break;
+        case 2:
+          element.style.backgroundColor = "rgba(255, 0, 0, 0.674)";
+          break;
+        case 3:
+          element.style.backgroundColor = "rgba(251, 255, 0, 0.966)";
+          break;
+        default:
+      }
+      element.className = "show";
+      setTimeout(function () {
+        element.className = element.className.replace("show", "");
+      }, jsonDoc["timems"]);
+    }
+    /*WebSocket sending Json data to server*/
+    function ws_tx_Text() {
+      websock.send(document.getElementById("txBar").value);
+      document.getElementById("txBar").value = "";
+    }
+    function ws_tx_Brightness() {
+      websock.send("#" + document.getElementById("brightness").value);
+    }
+    /*Miscellaneous methods*/
+    /*Browser*/
+    function fisBrowserOnline() {
+      let menu = document.querySelector(".menu");
+      if (navigator.onLine) {
+        menu.childNodes[3].classList.add("show");
+        menu.childNodes[4].classList.add("show");
+      }
+      else {
+        menu.childNodes[3].classList.remove("show");
+        menu.childNodes[4].classList.remove("show");
+      }
+    }
+    /*Fullscreen mode*/
+    function fisFullScreen() {
+      return document.fullscreenElement;
+    }
+    function fFullScreen() {
+      let elUI = document.getElementsByClassName(".ui");
+      if (IsFullScreen) {
+        let elem = document.documentElement;
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { /* Firefox */
+          elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE/Edge */
+          elem = window.top.document.body;     /*To break out of frame in IE*/
+          elem.msRequestFullscreen();
+        }
+        elUI.height = elUI.height - 50;
+        document.querySelector('.clock').classList.add("show");
+      }
+      else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+          window.top.document.msExitFullscreen();
+        }
+        elUI.height = elUI.height + 50;
+        document.querySelector('.clock').classList.remove("show");
+      }
+    }
+    function ftoggleFullScreen() {
+      IsFullScreen = IsFullScreen ^ true;
+      fFullScreen();
+    }
+
+    function fAweSomeMode() {
+      let awesomeclasslist = document.querySelector(".awesome").classList;
+      let buttons = document.querySelectorAll(".rbut");
+      console.log("button", buttons);
+      if (InAwesome) {
+        awesomeclasslist.add("show");
+        buttons.forEach(button => {
+          console.log("button", button.classList);
+          //button.classList.add("awesome");
+        });
+      }
+      else {
+        awesomeclasslist.remove("show");
+        buttons.forEach(button => {
+          button.classList.remove("awesome");
+        });
+      }
+    }
+    function ftoggleAweSomeMode() {
+      InAwesome = InAwesome ^ true;
+      fAweSomeMode();
+    }
+    function fLeftHand() {
+      let profilebut = document.querySelector(".menu").firstChild.classList;
+      let clock = document.querySelector(".clock").classList;
+      if (IsLeftHand) {
+        profilebut.add("left");
+        clock.add("left");
+      }
+      else {
+        profilebut.remove("left");
+        clock.remove("left");
+      }
+    }
+
+    function ftoggleLeftHand() {
+      IsLeftHand = IsLeftHand ^ true;
+      fLeftHand();
+    }
+  </script>
+</head>
+<!--Ends Head-->
+<!--Starts Body-->
+
+<body lang="en-nl" dir="ltr">
+  <script src="../styles/acc.js"></script>
+  <script src="../styles/clock-min.js"></script>
+</body>
+<!--Ends Body-->
+<script>
+
+</script>
+
+</html>
+<!--Ends Html-->
