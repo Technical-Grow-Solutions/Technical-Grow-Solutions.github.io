@@ -1,0 +1,31 @@
+{
+    "type": "accordion",
+    "id": "profile",
+    "translate": true,
+    "items": [
+        {
+            "item": "settings"
+        },
+        {
+            "item": "configurations",
+            "items": [
+                {
+                    "item": "uRL"
+                },
+                {
+                    "item": "callMeBot"
+                },
+                {
+                    "item": "miscellaneous",
+                    "translate": false
+                }
+            ]
+        },
+        {
+            "item": "about"
+        },
+        {
+            "item": "help"
+        }
+    ]
+}
