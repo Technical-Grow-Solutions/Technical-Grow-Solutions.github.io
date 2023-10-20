@@ -130,7 +130,7 @@ function facc_change_Item(acc_item_header) {
                 // local
                 //url = "http://192.168.1.20:5502" + "/" + acc.id + "/" + acc_menu_tree.join("/") + "/index.html";
                 // Git
-                url =  "/" + acc.id + "/main/" + acc_menu_tree.join("/") + "/index.html";
+                url = "https://technical-grow-solutions.github.io/" + acc.id + "/main/" + acc_menu_tree.join("/") + "/index.html";
                 // http://192.168.1.20:5502/training/insights/anatomy/intro/index.html
                 //https://raw.githubusercontent.com/Technical-Grow-Solutions/training/main/insights/anatomy/intro/index.html
                 console.log("URL: ", url);
