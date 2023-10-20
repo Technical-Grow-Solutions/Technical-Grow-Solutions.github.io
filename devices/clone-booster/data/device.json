@@ -1,0 +1,39 @@
+{
+    "id": "devices",
+    "type": "accordion",
+    "translate": true,
+    "items": [
+        {
+            "item": "Clone-Booster",
+            "translate": false,
+            "items": [
+                {
+                    "item": "live"
+                },
+                {
+                    "item": "chart"
+                },
+                {
+                    "item": "settings",
+                    "items": [
+                        {
+                            "item": "bucket"
+                        },
+                        {
+                            "item": "reservoir"
+                        }
+                    ]
+                },
+                {
+                    "item": "about"
+                },
+                {
+                    "item": "how to use"
+                },
+                {
+                    "item": "info"
+                }
+            ]
+        }
+    ]
+}

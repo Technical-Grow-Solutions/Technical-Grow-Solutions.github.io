@@ -1,0 +1,1 @@
+{"Nutrients":{"1":"Silica","2":"Calcium Magnesium","3":"Micro(TriPart)","4":"Grow(TriPart)","5":"Bloom(TriPart)","6":"Roots Booster","7":"Bloom Booster","8":"FinalPart","9":"FlashClean","10":"pH-"},"Phases":{"1":"1st roots","2":"1st true leaves","3":"Growing","4":"Preflowering","5":"Flowering","6":"Ripening","7":"Cleaning"},"Mediums":{"1":"Soil","2":"Hydro-Coco"}}

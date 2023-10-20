@@ -1,0 +1,141 @@
+{
+  "version": "1.0",
+  "urlsrv": "http://192.168.1.20:5500",
+  "Folders":
+  [
+    {
+      "name": "data",
+      "Files":
+      [
+        {
+          "pub": false,
+          "dwn": "config-min.json",
+          "up": "config.json"
+        },
+        {
+          "pub": false,
+          "dwn": "menu-min.json",
+          "up": "menu.json"
+        },
+        {
+          "pub": false,
+          "dwn": "sens-min.json",
+          "up": "sens.json"
+        }
+      ]
+    },
+    {
+      "name": "html",
+      "Files":
+      [
+        {
+          "pub": false,
+          "dwn": "chart-min.html",
+          "up": "chart.html"
+        },
+        {
+          "pub": false,
+          "dwn": "confg-min.html",
+          "up": "config.html"
+        },
+        {
+          "pub": false,
+          "dwn": "landing-min.html",
+          "up": "landing.html"
+        },
+        {
+          "pub": false,
+          "dwn": "realtime-min.html",
+          "up": "realtime.html"
+        },
+        {
+          "pub": false,
+          "dwn": "setting-min.html",
+          "up": "setting.html"
+        }
+      ]
+    },
+    {
+      "name": "images",
+      "Files": 
+      [
+        {
+          "pub": true,
+          "dwn": "company.ico",
+          "up": "company.ico"
+        },
+        {
+          "pub": true,
+          "dwn": "catalog.png",
+          "up": "catalog.png"
+        },
+        {
+          "pub": true,
+          "dwn": "forum.png",
+          "up": "forum.png"
+        },
+        {
+          "pub": true,
+          "dwn": "select-right.cur",
+          "up": "select-right.cur"
+        },
+        {
+          "pub": true,
+          "dwn": "training.png",
+          "up": "training.png"
+        },
+        {
+          "pub": true,
+          "dwn": "user.png",
+          "up": "user.png"
+        },
+        {
+          "pub": true,
+          "dwn": "chart.png",
+          "up": "chart.png"
+        },
+        {
+          "pub": true,
+          "dwn": "config.png",
+          "up": "config.png"
+        },
+        {
+          "pub": true,
+          "dwn": "now.png",
+          "up": "now.png"
+        },
+        {
+          "pub": true,
+          "dwn": "setting.png",
+          "up": "setting.png"
+        },
+        {
+          "pub": true,
+          "dwn": "status [off].gif",
+          "up": "status [off].gif"
+        },
+        {
+          "pub": true,
+          "dwn": "status [green].gif",
+          "up": "status [green].gif"
+        }
+      ]
+    },
+    {
+      "name": "styles",
+      "Files":
+      [
+        {
+          "pub": true,
+          "dwn": "main-min.css",
+          "up": "main.css"
+        },
+        {
+          "pub": false,
+          "dwn": "page-min.css",
+          "up": "page.css"
+        }
+      ]
+    }
+  ]
+}
