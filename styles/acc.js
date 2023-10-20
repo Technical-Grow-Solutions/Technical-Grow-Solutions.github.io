@@ -109,7 +109,7 @@ function facc_change_Item(acc_item_header) {
                 else {
                     // All other features under Profile
                     //url = "http://192.168.1.20:5502" + "/" + acc.id + "/" + acc_menu_tree[0] + "/html/" + acc_menu_tree[acc_menu_tree.length - 1] + ".html";
-                    url = "http://192.168.1.104:5502" + "/devices/clone-booster" + "/html/" + acc_menu_tree[acc_menu_tree.length - 1] + ".html";
+                    url = "/devices/clone-booster" + "/html/" + acc_menu_tree[acc_menu_tree.length - 1] + ".html";
                     //console.log("Live Server purpose: ", url);
                     fFetchAndRenderData(acc_item_body_content, url.toLowerCase());
                     calcHeight();
@@ -121,7 +121,7 @@ function facc_change_Item(acc_item_header) {
                 //window.location.hostname +
                 //url = "http://192.168.1.20:5502" + "/" + acc.id + "/" + acc_menu_tree[0] + "/html/" + acc_menu_tree[acc_menu_tree.length - 1] + ".html";
                 //url = "/html/" + acc_menu_tree[acc_menu_tree.length - 1] + ".html";
-                url = "http://192.168.1.104:5502" + "/devices/clone-booster" + "/html/" + acc_menu_tree[acc_menu_tree.length - 1] + ".html";
+                url = "/devices/clone-booster" + "/html/" + acc_menu_tree[acc_menu_tree.length - 1] + ".html";
                 fFetchAndRenderData(acc_item_body_content, url.toLowerCase());
                 calcHeight();
             }
@@ -130,7 +130,7 @@ function facc_change_Item(acc_item_header) {
                 // local
                 //url = "http://192.168.1.20:5502" + "/" + acc.id + "/" + acc_menu_tree.join("/") + "/index.html";
                 // Git
-                url = "https://raw.githubusercontent.com/Technical-Grow-Solutions" + "/" + acc.id + "/main/" + acc_menu_tree.join("/") + "/index.html";
+                url =  "/" + acc.id + "/main/" + acc_menu_tree.join("/") + "/index.html";
                 // http://192.168.1.20:5502/training/insights/anatomy/intro/index.html
                 //https://raw.githubusercontent.com/Technical-Grow-Solutions/training/main/insights/anatomy/intro/index.html
                 console.log("URL: ", url);
