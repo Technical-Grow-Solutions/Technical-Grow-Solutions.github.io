@@ -12,9 +12,6 @@ function acc_Init() {
 }
 // Change Item
 function facc_change_Item(acc_item_header) {
-    //console.clear();
-    //console.log("Function: {facc_change_Item to}", acc_item_header);
-
     // Back to the Item div
     const acc_item = acc_item_header.parentElement;
     let acc_item_headers;
@@ -36,28 +33,22 @@ function facc_change_Item(acc_item_header) {
                 acc_Active_Item_Header.nextElementSibling.style.maxHeight = 0;
             }
         });
-
         // Second: Acivate this item.
         const acc_item_body = acc_item_header.nextElementSibling;
         const acc_item_body_content = acc_item_body.firstElementChild;
-
         acc_item_header.classList.add("active");
         acc_menu_tree = fgetMenuTree();
         if (acc_item_body_content.childElementCount === 0) {
-            //console.log("Has to Fetch");
+            // Has to Fetch
             let url;
             if (acc.id == "profile") {
-                //console.log("profile menu_tree", acc_menu_tree);
                 // SETTINGS:
                 if (acc_menu_tree[acc_menu_tree.length - 1] == "settings") {
                     let table = document.createElement("table");
-
                     acc_item_body_content.appendChild(table);
-
                     let row = document.createElement("tr");
                     let cell = document.createElement("td");
                     let el_input = document.createElement("input");
-
                     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
                         table.appendChild(row);
                         row.appendChild(cell);
@@ -86,9 +77,8 @@ function facc_change_Item(acc_item_header) {
                     el_input.setAttribute("type", "checkbox");
                     el_input.setAttribute("name", "");
                     el_input.addEventListener("click", ftoggleFullScreen);
-                    el_input.checked = IsFullScreen; /*IsFullScreen*/
+                    el_input.checked = IsFullScreen;
                     cell.appendChild(el_input);
-
                     row = document.createElement("tr");
                     cell = document.createElement("td");
                     el_input = document.createElement("input");
@@ -103,63 +93,45 @@ function facc_change_Item(acc_item_header) {
                     el_input.addEventListener("click", ftoggleLeftHand);
                     el_input.checked = IsLeftHand;
                     cell.appendChild(el_input);
-
-
                 }
                 else {
                     // All other features under Profile
-                    //url = "http://192.168.1.20:5502" + "/" + acc.id + "/" + acc_menu_tree[0] + "/html/" + acc_menu_tree[acc_menu_tree.length - 1] + ".html";
                     url = "/devices/clone-booster" + "/html/" + acc_menu_tree[acc_menu_tree.length - 1] + ".html";
-                    //console.log("Live Server purpose: ", url);
                     fFetchAndRenderData(acc_item_body_content, url.toLowerCase());
-                    calcHeight();
+                    fcalcBodyContent();
                 }
             }
             else if (acc.id == "devices") {
                 // These always goes back to device.
-                //console.log("device menu_tree", acc_menu_tree);
-                //window.location.hostname +
-                //url = "http://192.168.1.20:5502" + "/" + acc.id + "/" + acc_menu_tree[0] + "/html/" + acc_menu_tree[acc_menu_tree.length - 1] + ".html";
-                //url = "/html/" + acc_menu_tree[acc_menu_tree.length - 1] + ".html";
                 url = "/devices/clone-booster" + "/html/" + acc_menu_tree[acc_menu_tree.length - 1] + ".html";
                 fFetchAndRenderData(acc_item_body_content, url.toLowerCase());
-                calcHeight();
+                fcalcBodyContent();
             }
             else {
                 // a htmlpage in training, catalog or ...
-                // local
-                //url = "http://192.168.1.20:5502" + "/" + acc.id + "/" + acc_menu_tree.join("/") + "/index.html";
-                // Git
-                url = "https://technical-grow-solutions.github.io/" + acc.id + "/main/" + acc_menu_tree.join("/") + "/index.html";
-                // http://192.168.1.20:5502/training/insights/anatomy/intro/index.html
-                //https://raw.githubusercontent.com/Technical-Grow-Solutions/training/main/insights/anatomy/intro/index.html
-                console.log("URL: ", url);
+                url = "/" + acc.id + "/" + acc_menu_tree.join("/") + "/index.html";
+                console.log("URL traning/catalog: ", url);
                 let div = document.createElement("div");
                 div.setAttribute("class", "content");
                 div.setAttribute("translate", "yes");
                 acc_item_body_content.appendChild(div);
-
                 fFetchAndRenderData(div, url.toLowerCase());
-                calcHeight();
+                fcalcBodyContent();
             }
-
-            //fFetchAndRenderData(acc_item_body_content, url.toLowerCase());
-            calcHeight();
+            fcalcBodyContent();
         }
         else {
-            calcHeight();
+            fcalcBodyContent();
         }
-
         // Feature:
         // acc_item_header.scrollIntoView();
     }
-    //console.log("EINDE");
 }
 async function fFetchAndRenderData(acc_item_body_content, url) {
     let data = await fgetBodyContent(url);
     acc_item_body_content.innerHTML = data;
     setTimeout(() => {
-        calcHeight();
+        fcalcBodyContent();
     }, 100);
 }
 // Get the Body_content
@@ -178,7 +150,7 @@ async function fgetBodyContent(url) {
         console.log("Error: ", error);
     }
 }
-function calcHeight() {
+function fcalcBodyContent() {
     var calcHeight = 0;
     let acc_menu_tree_reverse = acc_menu_tree.reverse();
     acc_menu_tree_reverse.forEach(sla => {
