@@ -360,7 +360,7 @@
         switch (i) {
           case 0:
             // div1.classList.add("left"); /* + class: left (for left-handed)*/
-            a.setAttribute("onclick", 'fshowInUI("/data/profile-min.json", "Profile")');
+            a.setAttribute("onclick", 'fshowInUI("/devices/data/profile-min.json", "Profile")');
             img.setAttribute("src", "/images/user.png");
             h2.innerHTML = "Profile";
             break;
@@ -588,6 +588,7 @@
       let item_body_content;
       let subitem_body_content;
       let subsubitem_body_content;
+      let subsubsubitem_body_content;
       let uicontent = document.querySelector('.ui-content');
 
       let jsonType = jsonDoc["type"];
@@ -616,6 +617,12 @@
                   /* SubSubItem  */
                   jsonSubItem["items"].forEach(jsonSubSubItem => {
                     subsubitem_body_content = fcreateACCItem(subitem_body_content, jsonSubSubItem);
+                    if (jsonSubSubItem.hasOwnProperty("items")) {
+                      /* SubSubSubItem  */
+                      jsonSubSubItem["items"].forEach(jsonSubSubSubItem => {
+                        subsubsubitem_body_content = fcreateACCItem(subsubitem_body_content, jsonSubSubSubItem);
+                      });
+                    }
                   });
                 }
                 else {
@@ -909,8 +916,8 @@
 <!--Starts Body-->
 
 <body lang="en-nl" dir="ltr">
-  <script src="../styles/acc.js"></script>
-  <script src="../styles/clock-min.js"></script>
+  <script src="styles/acc.js"></script>
+  <script src="styles/clock-min.js"></script>
 </body>
 <!--Ends Body-->
 <script>
